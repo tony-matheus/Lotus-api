@@ -1,24 +1,13 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<img src="https://lh3.googleusercontent.com/xANP1kekLbmtGI4UDAFOwNoiiw4LpgP55M8oUiZ-IXrKDBNEjSLsPGp2MoIUOf5iAESkEvEE3g6a1_8mUEQ=s291-no" height="150px" style="text-aling:center"/>
+# Welcome to Lotus!
 
-Things you may want to cover:
+Hi! we are a salon scheduling system with high technology and innovation
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Used Technologies
+ 
+* Ruby on Rails 
+ 
+* System HTTPS Requests 
+ 
+* Database Postgre 
