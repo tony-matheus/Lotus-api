@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20180302144056) do
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
-    t.bigint "profile_id"
+    t.bigint "user_id"
     t.string "street"
     t.string "neighborhood"
     t.string "public_place"
@@ -28,25 +28,23 @@ ActiveRecord::Schema.define(version: 20180302144056) do
     t.string "cep"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["profile_id"], name: "index_addresses_on_profile_id"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.bigint "profile_id"
+    t.bigint "user_id"
     t.string "phone"
     t.string "cellphone"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["profile_id"], name: "index_contacts_on_profile_id"
+    t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "name"
-    t.string "cpf"
-    t.date "birthday"
-    t.string "gender"
+    t.integer "profile"
+    t.integer "function"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
@@ -69,6 +67,10 @@ ActiveRecord::Schema.define(version: 20180302144056) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.string "email"
+    t.string "name"
+    t.string "cpf"
+    t.date "birthday"
+    t.string "gender"
     t.text "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -78,7 +80,7 @@ ActiveRecord::Schema.define(version: 20180302144056) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
-  add_foreign_key "addresses", "profiles"
-  add_foreign_key "contacts", "profiles"
+  add_foreign_key "addresses", "users"
+  add_foreign_key "contacts", "users"
   add_foreign_key "profiles", "users"
 end
