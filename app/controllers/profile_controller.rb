@@ -3,7 +3,7 @@ class ProfileController < ApplicationController
 
   def profile
       if current_user
-          @profile = Profile.find_by_user_id(current_user)
+          @profile = Profile.find(current_user.id)
           render_json(200,@profile)
       end
   end
@@ -34,7 +34,24 @@ class ProfileController < ApplicationController
       @phoneNumber = params[:phone]
       @cellPhoneNumber = params[:cellphone]
       @email = params[:email]
-      @contact = Contact.new(:profile_id => @profile.id, :phone => @phoneNumber, :cellphone =>@cellPhoneNumber, :email => current_user.email)
+      Contact.new(:profile_id => @profile.id, :phone => @phoneNumber, :cellphone =>@cellPhoneNumber, :email => current_user.email)
   end
 
+  def address_create
+      @address = {
+          :profile_id => @profile.id,
+          :street => params[:street],
+          :neighborhood => params[:neighborhood],
+          :public_place => params[:public_place],
+          :number => params[:number],
+          :city => params[:city],
+          :state => params[:state],
+          :country => params[:country],
+          :complement => params[:complement],
+          :cep => params[:cep]
+      }
+      Address.new(
+          @address
+      )
+  end
 end
