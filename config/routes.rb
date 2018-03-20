@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   post '/profile' => 'profile#create'
   get '/profile' => 'profile#profile'
+
 end

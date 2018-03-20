@@ -5,6 +5,6 @@ module ApplicationHelper
        :status => code,
        :message => msg
       }.to_json
-    end
+  end
 
 end
