@@ -45,7 +45,7 @@ module Overrides
 
                         @user.save!
 
-                        @profile = Profile.new(:user_id => current_user.id, :function => 1, :profile =>1)
+                        @profile = Profile.new(:user_id => current_user.id, :function => 1, :profile_type =>1)
                         @profile.save!
 
                         update_auth_header
@@ -71,6 +71,19 @@ module Overrides
                   errors: ["An account already exists for #{@resource.email}"]
                 }, status: 403
                 end
+            end
+        end
+
+        def user_data_update
+            if current_user
+                @user = current_user
+                @user.email = current_user.email
+                @user.name = params[:name]
+                @user.gender = params[:gender]
+                @user.birthday = params[:birthday]
+                @user.cpf = params[:cpf]
+
+                @user.update
             end
         end
     end

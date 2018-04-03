@@ -38,6 +38,8 @@ gem 'devise_token_auth'
 gem "omniauth"
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem "figaro"
+gem "paperclip", "~> 6.0.0"
 # cross-origin
 gem 'rack-cors', :require => 'rack/cors'
 gem 'pg', '~> 0.18'
