@@ -11,20 +11,20 @@ Rails.application.routes.draw do
   get '/informations' => 'informations#show'
   #store
   post '/store/create' => 'stores#create'
-  post '/store/update' => 'store#update'
-  get '/store/show' => 'store#show'
-  get '/store/stores' => 'store#show_stores'
-  get '/store/select' => 'store#select_stores'
+  post '/store/update' => 'stores#update'
+  get '/store/show' => 'stores#show'
+  get '/store/stores' => 'stores#show_stores'
+  get '/store/select' => 'stores#select_stores'
   #services
   post '/service/create' => 'services#create_service'
-  post '/service/update' => 'service#update'
-  get '/service/show' => 'service#show'
-  delete '/service/delete' => 'service#destroy'
+  post '/service/update' => 'services#update'
+  get '/service/show' => 'services#show'
+  delete '/service/delete' => 'services#destroy'
   #products
-  post '/product/create' => 'service#create_products'
-  post '/product/update' => 'service#update_products'
-  get '/product/show' => 'service#show_all_products'
-  delete '/product/delete' => 'service#destroy_products'
+  post '/product/create' => 'services#create_products'
+  post '/product/update' => 'services#update_products'
+  get '/product/show' => 'services#show_all_products'
+  delete '/product/delete' => 'services#destroy_products'
 
 
 end

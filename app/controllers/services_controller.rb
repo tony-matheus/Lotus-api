@@ -76,21 +76,25 @@ class ServicesController < ApplicationController
     end
 
     def create_products
-        count = 0
-        @products = params[:products]
-        @products.each do |product|
-            count += 1
-            @product_new = Product.new(product_params(product))
-            if @product_new.save
-                if product_images()
-                    unless create_service_product(product.id)
-                        render_json(500, "failed to save ServicesProduct")
+        Product.transaction do
+            ServicesProduct.transaction do        
+                count = 0
+                @products = params[:products]
+                @products.each do |product|
+                    count += 1
+                    @product_new = Product.new(product_params(product))
+                    if @product_new.save
+                        if product_images()
+                            unless create_service_product(product.id)
+                                render_json(500, "failed to save ServicesProduct")
+                            end
+                        else
+                            render_json(500, "failed to save image product")
+                        end
                     end
-                else
-                    render_json(500, "failed to save image product")
+                    render_json(500,"failed to save a product")
                 end
             end
-            render_json(500,"failed to save a product")
         end
     end
 
