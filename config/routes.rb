@@ -5,10 +5,26 @@ Rails.application.routes.draw do
   }
   root to: 'application#home'
   # namespace :api, constraints: { subdomain: 'api'}, path: "/" do
+  #informations
   post '/informations' => 'informations#create'
   post '/informations/update' => 'informations#update'
+  get '/informations' => 'informations#show'
+  #store
+  post '/store/create' => 'stores#create'
+  post '/store/update' => 'stores#update'
+  get '/store/show' => 'stores#show'
+  get '/store/stores' => 'stores#show_stores'
+  get '/store/select' => 'stores#select_stores'
+  #services
+  post '/service/create' => 'services#create_service'
+  post '/service/update' => 'services#update'
+  get '/service/show' => 'services#show'
+  delete '/service/delete' => 'services#destroy'
+  #products
+  post '/product/create' => 'services#create_products'
+  post '/product/update' => 'services#update_products'
+  get '/product/show' => 'services#show_all_products'
+  delete '/product/delete' => 'services#destroy_products'
 
-  post '/profile' => 'profile#create'
-  get '/profile' => 'profile#profile'
 
 end

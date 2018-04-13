@@ -34,8 +34,8 @@ class InformationsController < ApplicationController
 
     def show
         if current_user
-            @contacts = Contact.find_by(user_id: current_user.id, rating: 4)
-            @address = Address.find_by(user_id: current_user.id, rating: 4)
+            @contacts = Contact.find_by(user_id: current_user.id)
+            @address = Address.find_by(user_id: current_user.id)
 
             render_json 302, msg = { :contacts => @contacts, :address => @address}
         end
