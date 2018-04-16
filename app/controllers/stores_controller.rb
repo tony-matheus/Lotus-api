@@ -5,20 +5,18 @@ class StoresController < ApplicationController
         if current_user()
             @store = Store.new(store_params())
             if profile_permission(current_user)
-                # if @store.save! && store_images
-                if @store.save!
-                    @user_store = user_store_create()
-                    if @user_store.save!
-                        session[:store_id] = @store.id
-                        render_json(200, msg = { msg1: @store, msg2: @user_store })
-                    else
-                        render_json(400, msg = { msg1: @user_store, msg2: "failed to save store" })
-                    end
+                render_json(203, "Profile has no permission")
+            end
+            if @store.save!
+                @user_store = user_store_create()
+                if @user_store.save!
+                    session[:store_id] = @store.id
+                    render_json(200, msg = { msg1: @store, msg2: @user_store })
                 else
-                    render_json(400, msg = { msg1: @store, msg2: "failed to save store" })
+                    render_json(400, msg = { msg1: @user_store, msg2: "failed to save store" })
                 end
             else
-                render_json(203, "Profile has no permission")
+                render_json(400, msg = { msg1: @store, msg2: "failed to save store" })
             end
         end
     end
@@ -47,6 +45,14 @@ class StoresController < ApplicationController
         end
     end
 
+
+    def show
+        if current_user()
+            @stores = Store.all
+            render_json(200,@stores)
+        end
+    end
+
     def select_store
         if current_user()
             @store_id = params[:store_id]
@@ -58,15 +64,20 @@ class StoresController < ApplicationController
         end
     end
 
-
-    def show
-        if current_user()
-            @stores = Store.all
-            render_json(200,@stores)
+    def save_images
+        @imagesSave = ImagesStore.new(store_images_params())
+        if @imagesSave.save
+            render_json(200,@imageSave.image.url(:medium))
+        else
+            render_json(500, msg = {msg1: @image, msg2: @imagesSave})
         end
     end
 
-
+    def update_images
+        @imagesUpdate = ImagesStore.find_by(:store_id)
+        if @imagesUpdate.update_attribute(:image_file_name, params[:images])
+        end
+    end
     private
 
     def verify_store
@@ -79,7 +90,6 @@ class StoresController < ApplicationController
     end
 
     def store_params
-
         store = {
             name: params[:name],
             CNPJ: params[:CNPJ],
@@ -87,21 +97,25 @@ class StoresController < ApplicationController
             longitude: params[:longitude],
             latitude: params[:latitude]
         }
-
         store
     end
 
-    def store_images
-        count = 0
+    def store_images_params
         @images = params[:images]
-        @images.each do |image|
-            count = count + 1
-            @image = ImagesStore.new(:store_id => @store.id, :image=> image)
-            unless @image.save
-                render_json(500, "failed to save image#{count}")
-            end
-        end
-        true
+        @image = {
+            :store_id => session[:store_id],
+            :image => @images
+        }
+        @image
+        # @images.each do |image|
+        #     count = count + 1
+        #     @image = ImagesStore.new(
+        #         :store_id => @store.id,
+        #         :image=> image)
+        #     unless @image.save
+        #         render_json(500, "failed to save image#{count}")
+        #     end
+        # end
     end
 
     def user_store_create

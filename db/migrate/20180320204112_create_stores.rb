@@ -6,6 +6,7 @@ class CreateStores < ActiveRecord::Migration[5.1]
       t.string :category
       t.string :longitude
       t.string :latitude
+      t.attachment :avatar
       
       t.timestamps
     end

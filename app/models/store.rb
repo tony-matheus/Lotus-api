@@ -3,4 +3,8 @@ class Store < ApplicationRecord
     has_many :addresses
     has_many :contacts
     has_many :products
+
+    has_attached_file :image, styles: {large: "600x600", medium: "300x300", thumb: "150x150#"}
+    validates_attachment :image, content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
+
 end

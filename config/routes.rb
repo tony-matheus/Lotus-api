@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   mount_devise_token_auth_for 'User', at: 'auth', controllers: {
     registrations:  'overrides/registrations'
+    # sessions: 'overrides/sessions'
   }
   root to: 'application#home'
   # namespace :api, constraints: { subdomain: 'api'}, path: "/" do
+
+  #user avatar
+  post '/user/avatar' => 'overrides/registrations#user_avatar'
   #informations
   post '/informations' => 'informations#create'
   post '/informations/update' => 'informations#update'
@@ -25,6 +29,8 @@ Rails.application.routes.draw do
   post '/product/update' => 'services#update_products'
   get '/product/show' => 'services#show_all_products'
   delete '/product/delete' => 'services#destroy_products'
-
+  #images
+  post '/store/image' => 'stores#save_images'
+  post '/service/image' => 'services#' 
 
 end
