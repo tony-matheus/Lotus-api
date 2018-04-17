@@ -4,7 +4,6 @@ module Overrides
         def create
             # Check
             field = (resource_params.keys.map(&:to_sym) & resource_class.authentication_keys).first
-            session[:store_id] = nil
             @resource = nil
             if field
                 q_value = get_case_insensitive_field_from_resource_params(field)

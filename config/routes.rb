@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # namespace :api, constraints: { subdomain: 'api'}, path: "/" do
 
   #user avatar
-  post '/user/avatar' => 'overrides/registrations#user_avatar'
+  # post '/user/avatar' => 'overrides/registrations#user_avatar'
   #informations
   post '/informations' => 'informations#create'
   post '/informations/update' => 'informations#update'
@@ -31,6 +31,6 @@ Rails.application.routes.draw do
   delete '/product/delete' => 'services#destroy_products'
   #images
   post '/store/image' => 'stores#save_images'
-  post '/service/image' => 'services#' 
+  # post '/service/image' => 'services#'
 
 end

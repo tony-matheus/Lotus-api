@@ -12,3 +12,5 @@ tmp/
 .byebug_history
 
 public/system/
+
+log/
