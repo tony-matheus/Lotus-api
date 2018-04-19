@@ -16,8 +16,8 @@ class UserController < ApplicationController
 
     def user_avatar
         if current_user()
-            user = User.find(current_user.id)
-            user.update_attribute(:avatar, params[:avatar])
+            @@user = User.find(current_user.id)
+            @@user.update_attribute(:avatar, params[:avatar])
         end
     end
 end

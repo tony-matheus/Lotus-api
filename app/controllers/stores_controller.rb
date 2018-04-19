@@ -4,7 +4,7 @@ class StoresController < ApplicationController
     def create
         if current_user()
             @store = Store.new(store_params())
-            if profile_permission(current_user)
+            if profile_permission(current_user())
                 render_json(203, "Profile has no permission")
             end
             if @store.save!
@@ -23,10 +23,11 @@ class StoresController < ApplicationController
 
     def update
         if current_user()
-            if profile_permission(current_user)
+            if profile_permission(current_user())
                 @userStore = UsersStore.find_by(user_id: current_user.id)
-                @store_id = @userStore.store_id
-                @store = Store.find(storeId)
+                @@store_id = @userStore.store_id
+                #session please
+                @store = Store.find_by(:store_id => @@store_id)
                 if @store.update
                     render_json(200, msg = { :store => store, :msg => "success"})
                 else
@@ -55,9 +56,9 @@ class StoresController < ApplicationController
 
     def select_store
         if current_user()
-            @store_id = params[:store_id]
+            @@store_id = params[:store_id]
             if verify_store()
-                session[:store_id] = @store_id
+                session[:store_id] = @@store_id
             else
                 render_json(400,"this store don't belongs to this user, probably it's a hacker")
             end
@@ -74,10 +75,12 @@ class StoresController < ApplicationController
     end
 
     def update_images
-        @imagesUpdate = ImagesStore.find_by(:store_id)
+        @imagesUpdate = ImagesStore.find_by(store_id: session[:store_id])
         if @imagesUpdate.update_attribute(:image_file_name, params[:images])
+            #continue here
         end
     end
+
     private
 
     def verify_store
@@ -90,38 +93,29 @@ class StoresController < ApplicationController
     end
 
     def store_params
-        store = {
+        @@store = {
             name: params[:name],
             CNPJ: params[:CNPJ],
             category: params[:category],
             longitude: params[:longitude],
             latitude: params[:latitude]
         }
-        store
+        return @@store
     end
 
     def store_images_params
-        @images = params[:images]
-        @image = {
+        @@images = params[:images]
+        @@image = {
             :store_id => session[:store_id],
-            :image => @images
+            :image => @@images
         }
-        @image
-        # @images.each do |image|
-        #     count = count + 1
-        #     @image = ImagesStore.new(
-        #         :store_id => @store.id,
-        #         :image=> image)
-        #     unless @image.save
-        #         render_json(500, "failed to save image#{count}")
-        #     end
-        # end
+        return @@image
     end
 
     def user_store_create
-        user_store = UsersStore.new(
+        @@user_store = UsersStore.new(
             :user_id => current_user.id,
             :store_id => @store.id)
-            user_store
+        return @@user_store
     end
 end
