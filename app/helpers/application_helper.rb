@@ -4,7 +4,7 @@ module ApplicationHelper
       render :json => {
        :status => code,
        :message => msg
-      }.to_json
+      }
   end
 
   def profile_permission(user)
@@ -14,7 +14,7 @@ module ApplicationHelper
       end
       false
   end
- 
+
   def find_store_by_user_id
       user_store = UsersStore.find_by(user_id: current_user.id)
       store = Store.find(user_store.store_id)

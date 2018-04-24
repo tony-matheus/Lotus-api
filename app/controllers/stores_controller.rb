@@ -3,10 +3,10 @@ class StoresController < ApplicationController
 
     def create
         if current_user()
-            @store = Store.new(store_params())
             if profile_permission(current_user())
                 render_json(203, "Profile has no permission")
             end
+            @store = Store.new(store_params())
             if @store.save!
                 @user_store = user_store_create()
                 if @user_store.save!
