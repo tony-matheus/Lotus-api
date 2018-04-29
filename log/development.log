@@ -10952,3 +10952,1523 @@ Processing by StoresController#create as */*
 Completed 200 OK in 443ms (Views: 0.2ms | ActiveRecord: 109.1ms)
 
 
+Started POST "/auth/sign_in" for 127.0.0.1 at 2018-04-14 18:15:30 -0300
+  [1m[35m (112.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Overrides::SessionsController#create as */*
+  Parameters: {"email"=>"tony@teste.com", "password"=>"[FILTERED]", "session"=>{"email"=>"tony@teste.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+Completed 500 Internal Server Error in 296ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `store_id' for #<Overrides::SessionsController:0x00007fe5911ec430>):
+  
+app/controllers/overrides/sessions_controller.rb:7:in `create'
+Started POST "/auth/sign_in" for 127.0.0.1 at 2018-04-14 18:16:28 -0300
+Processing by Overrides::SessionsController#create as */*
+  Parameters: {"email"=>"tony@teste.com", "password"=>"[FILTERED]", "session"=>{"email"=>"tony@teste.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+Completed 500 Internal Server Error in 136ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `get_case_insensitive_field_from_resource_params' for #<Overrides::SessionsController:0x00007fe590337a20>):
+  
+app/controllers/overrides/sessions_controller.rb:10:in `create'
+Started POST "/auth/sign_in" for 127.0.0.1 at 2018-04-14 18:17:41 -0300
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"tony@teste.com", "password"=>"[FILTERED]", "session"=>{"email"=>"tony@teste.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[36mUser Load (75.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'tony@teste.com' AND provider='email') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (77.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"2HuhzDhNX5T7KvoypZ-7-g\":{\"token\":\"$2a$10$r8fJpZtoLQ4aK/QondDYAu/1hqzBJTK.zV6BUqxHYYTvzKhcjbDK6\",\"expiry\":1524429468,\"last_token\":\"$2a$10$PNGofcthYPxoY73pRSxXhOj1rxIf/30eirPy8sb2g0IhwbSKkY.16\",\"updated_at\":\"2018-04-08T17:37:48.822-03:00\"},\"h_WpVinvzopOlV2FtX24Sg\":{\"token\":\"$2a$10$tXC4u8k/rXEO17UusUa04.tWFkeuGFXG5g/mNkSFeLrDMI9HDXeaG\",\"expiry\":1524511931,\"last_token\":\"$2a$10$0qoTiikuBf7IVlcIrJcxwe.i71GAAZ2cbF8NMj4Woh4ggqGEydFQy\",\"updated_at\":\"2018-04-09T16:32:11.916-03:00\"},\"1f8oLGi36YP8k_7UobcNcQ\":{\"token\":\"$2a$10$ZmPKk8dJ69bg8hNDioTdX.vRtD1OmnXD3YpbPXgt8bafYuXKbR4CW\",\"expiry\":1524950261}}"], ["updated_at", "2018-04-14 21:17:41.526214"], ["id", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"2HuhzDhNX5T7KvoypZ-7-g\":{\"token\":\"$2a$10$r8fJpZtoLQ4aK/QondDYAu/1hqzBJTK.zV6BUqxHYYTvzKhcjbDK6\",\"expiry\":1524429468,\"last_token\":\"$2a$10$PNGofcthYPxoY73pRSxXhOj1rxIf/30eirPy8sb2g0IhwbSKkY.16\",\"updated_at\":\"2018-04-08T17:37:48.822-03:00\"},\"h_WpVinvzopOlV2FtX24Sg\":{\"token\":\"$2a$10$tXC4u8k/rXEO17UusUa04.tWFkeuGFXG5g/mNkSFeLrDMI9HDXeaG\",\"expiry\":1524511931,\"last_token\":\"$2a$10$0qoTiikuBf7IVlcIrJcxwe.i71GAAZ2cbF8NMj4Woh4ggqGEydFQy\",\"updated_at\":\"2018-04-09T16:32:11.916-03:00\"},\"1f8oLGi36YP8k_7UobcNcQ\":{\"token\":\"$2a$10$azT1Vyg.USQziyL480hpJeitpx4UrOnOPeTSTSAfqdgRTOke.ja7e\",\"expiry\":1524950261,\"last_token\":\"$2a$10$ZmPKk8dJ69bg8hNDioTdX.vRtD1OmnXD3YpbPXgt8bafYuXKbR4CW\",\"updated_at\":\"2018-04-14T18:17:41.702-03:00\"}}"], ["updated_at", "2018-04-14 21:17:41.716755"], ["id", 1]]
+  [1m[35m (40.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 634ms (Views: 0.4ms | ActiveRecord: 255.2ms)
+
+
+Started POST "/store/image" for 127.0.0.1 at 2018-04-14 18:18:38 -0300
+Processing by StoresController#save_images as */*
+  Parameters: {"FULANGO.jpeg"=>#<ActionDispatch::Http::UploadedFile:0x00007fe58df3b3d8 @tempfile=#<Tempfile:/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/RackMultipart20180414-35657-1q0m8y4.jpeg>, @original_filename="FULANGO.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"\"; filename=\"FULANGO.jpeg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (118.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "tony@teste.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 260ms (ActiveRecord: 119.0ms)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/stores_controller.rb:104:in `store_images_params'
+app/controllers/stores_controller.rb:70:in `save_images'
+Started POST "/store/image" for 127.0.0.1 at 2018-04-14 18:20:37 -0300
+Processing by StoresController#save_images as */*
+  Parameters: {"images"=>#<ActionDispatch::Http::UploadedFile:0x00007fe59113c0a8 @tempfile=#<Tempfile:/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/RackMultipart20180414-35657-7yotng.jpeg>, @original_filename="FULANGO.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"images\"; filename=\"FULANGO.jpeg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "tony@teste.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `each' for #<ActionDispatch::Http::UploadedFile:0x00007fe59113c0a8>):
+  
+app/controllers/stores_controller.rb:104:in `store_images_params'
+app/controllers/stores_controller.rb:70:in `save_images'
+Started POST "/store/image" for 127.0.0.1 at 2018-04-14 18:25:23 -0300
+Processing by StoresController#save_images as */*
+  Parameters: {"images"=>#<ActionDispatch::Http::UploadedFile:0x00007fe591091ea0 @tempfile=#<Tempfile:/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/RackMultipart20180414-35657-1jm4cp1.jpeg>, @original_filename="FULANGO.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"images\"; filename=\"FULANGO.jpeg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "tony@teste.com"], ["LIMIT", 1]]
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/RackMultipart20180414-35657-1jm4cp1.jpeg to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-35657-hyeqco.jpeg
+Completed 500 Internal Server Error in 192ms (ActiveRecord: 18.8ms)
+
+
+  
+Paperclip::Error (ImagesStore model missing required attr_accessor for 'image_file_name'):
+  
+app/controllers/stores_controller.rb:70:in `save_images'
+  [1m[35m (74.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (266.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (3257.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "lotus_development"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "lotus_development"[0m
+  [1m[35m (52187.5ms)[0m  [1m[35mCREATE DATABASE "lotus_development" ENCODING = 'utf8'[0m
+  [1m[35m (166.4ms)[0m  [1m[35mCREATE DATABASE "lotus_development" ENCODING = 'utf8'[0m
+  [1m[35m (6092.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (455.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5265277593975372645)[0m
+  [1m[35m (82.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseTokenAuthCreateUsers (20180301204044)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1172.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "provider" character varying DEFAULT 'email' NOT NULL, "uid" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "email" character varying, "name" character varying, "cpf" character varying, "birthday" date, "gender" character varying, "tokens" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (215.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (123.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_uid_and_provider" ON "users"  ("uid", "provider")[0m
+  [1m[35m (93.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35m (83.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_confirmation_token" ON "users"  ("confirmation_token")[0m
+  [1m[35mSQL (203.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180301204044"]]
+  [1m[35m (501.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProfiles (20180301204917)
+  [1m[35m (41.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1297.3ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" bigserial primary key, "user_id" bigint, "profile_type" character varying(1) NOT NULL, "function" integer, "current_store" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e424190865"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (83.1ms)[0m  [1m[35mCREATE  INDEX  "index_profiles_on_user_id" ON "profiles"  ("user_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180301204917"]]
+  [1m[35m (120.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStores (20180320204112)
+  [1m[35m (81.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (295.0ms)[0m  [1m[35mCREATE TABLE "stores" ("id" bigserial primary key, "name" character varying, "CNPJ" character varying, "category" character varying, "longitude" character varying, "latitude" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320204112"]]
+  [1m[35m (82.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServices (20180320204554)
+  [1m[35m (82.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (305.4ms)[0m  [1m[35mCREATE TABLE "services" ("id" bigserial primary key, "store_id" bigint, "title" character varying, "name" character varying, "description" character varying, "price" character varying, "time" character varying, "type" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_9db343ab98"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (118.7ms)[0m  [1m[35mCREATE  INDEX  "index_services_on_store_id" ON "services"  ("store_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320204554"]]
+  [1m[35m (41.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProducts (20180320205200)
+  [1m[35m (82.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (257.4ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "store_id" bigint, "name" character varying, "amount" integer, "price" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5cf8ff66a6"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (81.6ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_store_id" ON "products"  ("store_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320205200"]]
+  [1m[35m (223.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServicesProducts (20180320210708)
+  [1m[35m (105.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (291.5ms)[0m  [1m[35mCREATE TABLE "services_products" ("id" bigserial primary key, "services_id" bigint, "products_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b626cde39e"
+FOREIGN KEY ("services_id")
+  REFERENCES "services" ("id")
+, CONSTRAINT "fk_rails_e1d1c9216d"
+FOREIGN KEY ("products_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (194.5ms)[0m  [1m[35mCREATE  INDEX  "index_services_products_on_services_id" ON "services_products"  ("services_id")[0m
+  [1m[35m (184.9ms)[0m  [1m[35mCREATE  INDEX  "index_services_products_on_products_id" ON "services_products"  ("products_id")[0m
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320210708"]]
+  [1m[35m (89.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServicesTypes (20180320213432)
+  [1m[35m (193.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (363.7ms)[0m  [1m[35mCREATE TABLE "services_types" ("id" bigserial primary key, "services_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_7815af98a6"
+FOREIGN KEY ("services_id")
+  REFERENCES "services" ("id")
+)[0m
+  [1m[35m (118.8ms)[0m  [1m[35mCREATE  INDEX  "index_services_types_on_services_id" ON "services_types"  ("services_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320213432"]]
+  [1m[35m (41.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesServices (20180320215504)
+  [1m[35m (82.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (207.9ms)[0m  [1m[35mCREATE TABLE "images_services" ("id" bigserial primary key, "service_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_91315c4351"
+FOREIGN KEY ("service_id")
+  REFERENCES "services" ("id")
+)[0m
+  [1m[35m (82.7ms)[0m  [1m[35mCREATE  INDEX  "index_images_services_on_service_id" ON "images_services"  ("service_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215504"]]
+  [1m[35m (40.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesProducts (20180320215519)
+  [1m[35m (95.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (221.8ms)[0m  [1m[35mCREATE TABLE "images_products" ("id" bigserial primary key, "product_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_58f28d387f"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (100.9ms)[0m  [1m[35mCREATE  INDEX  "index_images_products_on_product_id" ON "images_products"  ("product_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215519"]]
+  [1m[35m (101.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesStores (20180320215534)
+  [1m[35m (98.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (290.6ms)[0m  [1m[35mCREATE TABLE "images_stores" ("id" bigserial primary key, "store_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_44e852562d"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (82.0ms)[0m  [1m[35mCREATE  INDEX  "index_images_stores_on_store_id" ON "images_stores"  ("store_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215534"]]
+  [1m[35m (120.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateContacts (20180322165032)
+  [1m[35m (104.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (128.3ms)[0m  [1m[35mCREATE TABLE "contacts" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "phone" character varying, "cellphone" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_8d2134e55e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_0e53faddc1"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (117.8ms)[0m  [1m[35mCREATE  INDEX  "index_contacts_on_user_id" ON "contacts"  ("user_id")[0m
+  [1m[35m (41.8ms)[0m  [1m[35mCREATE  INDEX  "index_contacts_on_store_id" ON "contacts"  ("store_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322165032"]]
+  [1m[35m (82.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAddresses (20180322165250)
+  [1m[35m (40.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (293.8ms)[0m  [1m[35mCREATE TABLE "addresses" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "street" character varying, "neighborhood" character varying, "public_place" character varying, "number" character varying, "city" character varying, "state" character varying, "country" character varying, "complement" character varying, "cep" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_48c9e0c5a2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_3cebe9f466"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (54.9ms)[0m  [1m[35mCREATE  INDEX  "index_addresses_on_user_id" ON "addresses"  ("user_id")[0m
+  [1m[35m (82.1ms)[0m  [1m[35mCREATE  INDEX  "index_addresses_on_store_id" ON "addresses"  ("store_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322165250"]]
+  [1m[35m (118.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsersStores (20180322173024)
+  [1m[35m (81.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (131.5ms)[0m  [1m[35mCREATE TABLE "users_stores" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_d895140461"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_8a1f92fcd8"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (130.7ms)[0m  [1m[35mCREATE  INDEX  "index_users_stores_on_user_id" ON "users_stores"  ("user_id")[0m
+  [1m[35m (154.0ms)[0m  [1m[35mCREATE  INDEX  "index_users_stores_on_store_id" ON "users_stores"  ("store_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322173024"]]
+  [1m[35m (81.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to FkToBeNull (20180404160348)
+  [1m[35m (81.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (41.4ms)[0m  [1m[35mALTER TABLE "addresses" ALTER COLUMN "store_id" DROP DEFAULT[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180404160348"]]
+  [1m[35m (78.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-14 21:43:01.389629"], ["updated_at", "2018-04-14 21:43:01.389629"]]
+  [1m[35m (41.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5265277593975372645)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/auth" for 127.0.0.1 at 2018-04-14 18:50:44 -0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Overrides::RegistrationsController#create as */*
+  Parameters: {"email"=>"tony@teste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000", "registration"=>{"email"=>"tony@teste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000"}}
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[36mUser Exists (44.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tony@teste.com"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."provider" = $1 AND "users"."email" = $2[0m  [["provider", "email"], ["email", "tony@teste.com"]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "tony@teste.com"], ["encrypted_password", "$2a$10$Firj0VRUHLFqvpz1qY78V.si/FbHkYoj75aynBKGBiFReBcC6.uMe"], ["email", "tony@teste.com"], ["tokens", "{}"], ["created_at", "2018-04-14 21:50:44.803267"], ["updated_at", "2018-04-14 21:50:44.803267"]]
+  [1m[35mSQL (1.5ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "gender" = $2, "tokens" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["name", "tony"], ["gender", "masc"], ["tokens", "{\"cmHoDjuTm3_AXJXKGI7eIA\":{\"token\":\"$2a$10$lKsGuTTqTaYrM5jwn6GVred72QhbiqZ/CA9kGBP0H0v6TCirh1tpO\",\"expiry\":1524952244}}"], ["updated_at", "2018-04-14 21:50:44.917197"], ["id", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (86.6ms)[0m  [1m[32mINSERT INTO "profiles" ("user_id", "profile_type", "function", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["profile_type", "1"], ["function", 1], ["created_at", "2018-04-14 21:50:45.016787"], ["updated_at", "2018-04-14 21:50:45.016787"]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"cmHoDjuTm3_AXJXKGI7eIA\":{\"token\":\"$2a$10$wdrxaDXP0cY.nUe.cPxG.uGtXaRL9NNDKf6GLaPyhrouAhPFkF6Oq\",\"expiry\":1524952245,\"last_token\":\"$2a$10$lKsGuTTqTaYrM5jwn6GVred72QhbiqZ/CA9kGBP0H0v6TCirh1tpO\",\"updated_at\":\"2018-04-14T18:50:45.198-03:00\"}}"], ["updated_at", "2018-04-14 21:50:45.199623"], ["id", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 746ms (Views: 0.5ms | ActiveRecord: 154.0ms)
+
+
+Started POST "/store/image" for 127.0.0.1 at 2018-04-14 18:51:46 -0300
+Processing by StoresController#save_images as */*
+  Parameters: {"images"=>#<ActionDispatch::Http::UploadedFile:0x00007fe011857b10 @tempfile=#<Tempfile:/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/RackMultipart20180414-56221-on3ur1.jpeg>, @original_filename="FULANGO.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"images\"; filename=\"FULANGO.jpeg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "tony@teste.com"], ["LIMIT", 1]]
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/RackMultipart20180414-56221-on3ur1.jpeg to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-17a1hwe.jpeg
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-17a1hwe.jpeg to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-op67u7.jpeg
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-op67u7.jpeg'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-17a1hwe.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-17a1hwe.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-17a1hwe.jpeg[0]' -auto-orient -resize "600x600" '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/67ac8ae99f7d6897618b6148057f267520180414-56221-t4tayf'
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/67ac8ae99f7d6897618b6148057f267520180414-56221-t4tayf to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/fa7025ce365e5d59784de59d01d8a1a220180414-56221-klj559
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-17a1hwe.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-17a1hwe.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-17a1hwe.jpeg[0]' -auto-orient -resize "300x300" '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/67ac8ae99f7d6897618b6148057f267520180414-56221-19bhb1r'
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/67ac8ae99f7d6897618b6148057f267520180414-56221-19bhb1r to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/fbce504ea9ac25563252b36299287c1f20180414-56221-qkx6wn
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-17a1hwe.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-17a1hwe.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-17a1hwe.jpeg[0]' -auto-orient -resize "150x" -crop "150x150+0+0" +repage '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/67ac8ae99f7d6897618b6148057f267520180414-56221-1mf2omr'
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/67ac8ae99f7d6897618b6148057f267520180414-56221-1mf2omr to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/6191216d002eb6161dceb8455e29343420180414-56221-1xqdqhs
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStore Load (10.4ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-17a1hwe.jpeg to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-3sjr1h.jpeg
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-3sjr1h.jpeg'
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"cmHoDjuTm3_AXJXKGI7eIA\":{\"token\":\"$2a$10$mDly71MqbZlDHDIdYEn0Pe4LJ87cOqXxT66bmRWVUgu7CKrBgvj5S\",\"expiry\":1524952307,\"last_token\":\"$2a$10$wdrxaDXP0cY.nUe.cPxG.uGtXaRL9NNDKf6GLaPyhrouAhPFkF6Oq\",\"updated_at\":\"2018-04-14T18:51:47.446-03:00\"}}"], ["updated_at", "2018-04-14 21:51:47.448008"], ["id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 1129ms (Views: 0.4ms | ActiveRecord: 25.1ms)
+
+
+Started POST "/auth/sign_in" for 127.0.0.1 at 2018-04-14 18:53:45 -0300
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"tony@teste.com", "password"=>"[FILTERED]", "session"=>{"email"=>"tony@teste.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'tony@teste.com' AND provider='email') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"cmHoDjuTm3_AXJXKGI7eIA\":{\"token\":\"$2a$10$mDly71MqbZlDHDIdYEn0Pe4LJ87cOqXxT66bmRWVUgu7CKrBgvj5S\",\"expiry\":1524952307,\"last_token\":\"$2a$10$wdrxaDXP0cY.nUe.cPxG.uGtXaRL9NNDKf6GLaPyhrouAhPFkF6Oq\",\"updated_at\":\"2018-04-14T18:51:47.446-03:00\"},\"Rcidfz2xg8tGLhjv1zQYXA\":{\"token\":\"$2a$10$IkCBY1Vk08MJT5gdziydQ.3DpnXFAwGaQ60lerf2rZlHJyzBllSlu\",\"expiry\":1524952425}}"], ["updated_at", "2018-04-14 21:53:45.593970"], ["id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"cmHoDjuTm3_AXJXKGI7eIA\":{\"token\":\"$2a$10$mDly71MqbZlDHDIdYEn0Pe4LJ87cOqXxT66bmRWVUgu7CKrBgvj5S\",\"expiry\":1524952307,\"last_token\":\"$2a$10$wdrxaDXP0cY.nUe.cPxG.uGtXaRL9NNDKf6GLaPyhrouAhPFkF6Oq\",\"updated_at\":\"2018-04-14T18:51:47.446-03:00\"},\"Rcidfz2xg8tGLhjv1zQYXA\":{\"token\":\"$2a$10$OA33lvyn/Bo2KCOZNwh.TeM8F6YE8ylT1Ojv21O8Waa04QNi0tx/.\",\"expiry\":1524952425,\"last_token\":\"$2a$10$IkCBY1Vk08MJT5gdziydQ.3DpnXFAwGaQ60lerf2rZlHJyzBllSlu\",\"updated_at\":\"2018-04-14T18:53:45.699-03:00\"}}"], ["updated_at", "2018-04-14 21:53:45.701657"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 323ms (Views: 1.5ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/store/create" for 127.0.0.1 at 2018-04-14 18:54:03 -0300
+Processing by StoresController#create as */*
+  Parameters: {"name"=>"MM grupo", "CNPJ"=>"123456789", "category"=>"THE SAD of TECHNOLOGY", "longitude"=>"123456789", "latitude"=>"12345678", "store"=>{"name"=>"MM grupo", "CNPJ"=>"123456789", "category"=>"THE SAD of TECHNOLOGY", "longitude"=>"123456789", "latitude"=>"12345678"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "tony@teste.com"], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "stores" ("name", "CNPJ", "category", "longitude", "latitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "MM grupo"], ["CNPJ", "123456789"], ["category", "THE SAD of TECHNOLOGY"], ["longitude", "123456789"], ["latitude", "12345678"], ["created_at", "2018-04-14 21:54:03.235230"], ["updated_at", "2018-04-14 21:54:03.235230"]]
+  [1m[35m (87.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.6ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (20.9ms)[0m  [1m[32mINSERT INTO "users_stores" ("user_id", "store_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["store_id", 1], ["created_at", "2018-04-14 21:54:03.383557"], ["updated_at", "2018-04-14 21:54:03.383557"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"cmHoDjuTm3_AXJXKGI7eIA\":{\"token\":\"$2a$10$mDly71MqbZlDHDIdYEn0Pe4LJ87cOqXxT66bmRWVUgu7CKrBgvj5S\",\"expiry\":1524952307,\"last_token\":\"$2a$10$wdrxaDXP0cY.nUe.cPxG.uGtXaRL9NNDKf6GLaPyhrouAhPFkF6Oq\",\"updated_at\":\"2018-04-14T18:51:47.446-03:00\"},\"Rcidfz2xg8tGLhjv1zQYXA\":{\"token\":\"$2a$10$rBEZcmYJ2/rZY0Qe.dUE/OAUiid9P0hCdZ6mKUYWKWxF43JeX0AbO\",\"expiry\":1524952443,\"last_token\":\"$2a$10$OA33lvyn/Bo2KCOZNwh.TeM8F6YE8ylT1Ojv21O8Waa04QNi0tx/.\",\"updated_at\":\"2018-04-14T18:54:03.511-03:00\"}}"], ["updated_at", "2018-04-14 21:54:03.512477"], ["id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 400ms (Views: 0.3ms | ActiveRecord: 121.0ms)
+
+
+Started POST "/store/image" for 127.0.0.1 at 2018-04-14 18:58:29 -0300
+Processing by StoresController#save_images as */*
+  Parameters: {"images"=>#<ActionDispatch::Http::UploadedFile:0x00007fe01100f570 @tempfile=#<Tempfile:/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/RackMultipart20180414-56221-4qa1yi.jpeg>, @original_filename="FULANGO.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"images\"; filename=\"FULANGO.jpeg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "tony@teste.com"], ["LIMIT", 1]]
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/RackMultipart20180414-56221-4qa1yi.jpeg to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-o6pmbr.jpeg
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-o6pmbr.jpeg to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1an2sfj.jpeg
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1an2sfj.jpeg'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-o6pmbr.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-o6pmbr.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-o6pmbr.jpeg[0]' -auto-orient -resize "600x600" '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/2b5c0f360c7693a41a7a999ac4944e8120180414-56221-11ycbes'
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/2b5c0f360c7693a41a7a999ac4944e8120180414-56221-11ycbes to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/b103f56bba4cdfe805b57fa8c31c43de20180414-56221-rk628d
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-o6pmbr.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-o6pmbr.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-o6pmbr.jpeg[0]' -auto-orient -resize "300x300" '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/2b5c0f360c7693a41a7a999ac4944e8120180414-56221-1775ldc'
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/2b5c0f360c7693a41a7a999ac4944e8120180414-56221-1775ldc to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/153738e9ce53329160ccce851108818820180414-56221-14z4cy
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-o6pmbr.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-o6pmbr.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-o6pmbr.jpeg[0]' -auto-orient -resize "150x" -crop "150x150+0+0" +repage '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/2b5c0f360c7693a41a7a999ac4944e8120180414-56221-n8byla'
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/2b5c0f360c7693a41a7a999ac4944e8120180414-56221-n8byla to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/6ee6bb8bdba7e55d99273009b9cb46e920180414-56221-1mhofvb
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStore Load (0.6ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-o6pmbr.jpeg to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1zporm.jpeg
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1zporm.jpeg'
+  [1m[35mSQL (17.2ms)[0m  [1m[32mINSERT INTO "images_stores" ("store_id", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["store_id", 1], ["image_file_name", "FULANGO.jpeg"], ["image_content_type", "image/jpeg"], ["image_file_size", 41936], ["image_updated_at", "2018-04-14 21:58:39.463482"], ["created_at", "2018-04-14 21:58:40.025496"], ["updated_at", "2018-04-14 21:58:40.025496"]]
+  [1m[35m (42.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 849ms (ActiveRecord: 74.9ms)
+
+
+  
+NoMethodError (undefined method `image' for #<Hash:0x00007fe00d4e3988>):
+  
+app/controllers/stores_controller.rb:72:in `save_images'
+Started POST "/store/image" for 127.0.0.1 at 2018-04-14 18:59:19 -0300
+Processing by StoresController#save_images as */*
+  Parameters: {"images"=>#<ActionDispatch::Http::UploadedFile:0x00007fe011a76bd0 @tempfile=#<Tempfile:/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/RackMultipart20180414-56221-d1qjnn.jpeg>, @original_filename="FULANGO.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"images\"; filename=\"FULANGO.jpeg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "tony@teste.com"], ["LIMIT", 1]]
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/RackMultipart20180414-56221-d1qjnn.jpeg to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-aeutw7.jpeg
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-aeutw7.jpeg to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-y6qj9k.jpeg
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-y6qj9k.jpeg'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-aeutw7.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-aeutw7.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-aeutw7.jpeg[0]' -auto-orient -resize "600x600" '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/8d4b72ff7aaa0e7e831eb959b931b9c520180414-56221-kwtewv'
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/8d4b72ff7aaa0e7e831eb959b931b9c520180414-56221-kwtewv to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/c8122825552f68d94e7e8a8a73ec189120180414-56221-kfhwm6
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-aeutw7.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-aeutw7.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-aeutw7.jpeg[0]' -auto-orient -resize "300x300" '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/8d4b72ff7aaa0e7e831eb959b931b9c520180414-56221-1cfn7fh'
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/8d4b72ff7aaa0e7e831eb959b931b9c520180414-56221-1cfn7fh to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/794faab53a8aa59ef49333e2df33f84320180414-56221-g5b3bo
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-aeutw7.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-aeutw7.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-aeutw7.jpeg[0]' -auto-orient -resize "150x" -crop "150x150+0+0" +repage '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/8d4b72ff7aaa0e7e831eb959b931b9c520180414-56221-1neybye'
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/8d4b72ff7aaa0e7e831eb959b931b9c520180414-56221-1neybye to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/23d11647e06b3255f34a9ccbbb501bc520180414-56221-w45otr
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStore Load (0.5ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-aeutw7.jpeg to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1gayc3c.jpeg
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1gayc3c.jpeg'
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "images_stores" ("store_id", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["store_id", 1], ["image_file_name", "FULANGO.jpeg"], ["image_content_type", "image/jpeg"], ["image_file_size", 41936], ["image_updated_at", "2018-04-14 21:59:19.653304"], ["created_at", "2018-04-14 21:59:20.148239"], ["updated_at", "2018-04-14 21:59:20.148239"]]
+  [1m[35m (58.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 716ms (ActiveRecord: 60.9ms)
+
+
+  
+NoMethodError (undefined method `image' for #<Hash:0x00007fe011166040>):
+  
+app/controllers/stores_controller.rb:72:in `save_images'
+Started POST "/store/image" for 127.0.0.1 at 2018-04-14 18:59:43 -0300
+Processing by StoresController#save_images as */*
+  Parameters: {"images"=>#<ActionDispatch::Http::UploadedFile:0x00007fe00d470190 @tempfile=#<Tempfile:/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/RackMultipart20180414-56221-19bt08j.jpeg>, @original_filename="FULANGO.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"images\"; filename=\"FULANGO.jpeg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "tony@teste.com"], ["LIMIT", 1]]
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/RackMultipart20180414-56221-19bt08j.jpeg to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1locae.jpeg
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1locae.jpeg to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-qq39lv.jpeg
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-qq39lv.jpeg'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1locae.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1locae.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1locae.jpeg[0]' -auto-orient -resize "600x600" '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/33954b04b56b55bb5a7cc63d570b351920180414-56221-10w6npz'
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/33954b04b56b55bb5a7cc63d570b351920180414-56221-10w6npz to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/a2212fca77c182e434a6631a59481cf320180414-56221-19tf83b
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1locae.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1locae.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1locae.jpeg[0]' -auto-orient -resize "300x300" '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/33954b04b56b55bb5a7cc63d570b351920180414-56221-1vo8qiv'
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/33954b04b56b55bb5a7cc63d570b351920180414-56221-1vo8qiv to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/f9b87707e8a95cfb1c5ba50c857b1c0d20180414-56221-dl5c07
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1locae.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1locae.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1locae.jpeg[0]' -auto-orient -resize "150x" -crop "150x150+0+0" +repage '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/33954b04b56b55bb5a7cc63d570b351920180414-56221-17orilu'
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/33954b04b56b55bb5a7cc63d570b351920180414-56221-17orilu to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/7ca132e69360ca08b04fc8a2b96d91a320180414-56221-1acg80u
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStore Load (0.5ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1locae.jpeg to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1xg529l.jpeg
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1xg529l.jpeg'
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "images_stores" ("store_id", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["store_id", 1], ["image_file_name", "FULANGO.jpeg"], ["image_content_type", "image/jpeg"], ["image_file_size", 41936], ["image_updated_at", "2018-04-14 21:59:43.851460"], ["created_at", "2018-04-14 21:59:44.376579"], ["updated_at", "2018-04-14 21:59:44.376579"]]
+  [1m[35m (40.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 765ms (ActiveRecord: 42.9ms)
+
+
+  
+NoMethodError (undefined method `image_file_name' for #<Hash:0x00007fe0111a9e08>):
+  
+app/controllers/stores_controller.rb:72:in `save_images'
+Started POST "/store/image" for 127.0.0.1 at 2018-04-14 19:00:04 -0300
+Processing by StoresController#save_images as */*
+  Parameters: {"images"=>#<ActionDispatch::Http::UploadedFile:0x00007fe00e1fa4a0 @tempfile=#<Tempfile:/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/RackMultipart20180414-56221-7c2sgq.jpeg>, @original_filename="FULANGO.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"images\"; filename=\"FULANGO.jpeg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "tony@teste.com"], ["LIMIT", 1]]
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/RackMultipart20180414-56221-7c2sgq.jpeg to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1jr3kek.jpeg
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1jr3kek.jpeg to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1afhgqa.jpeg
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1afhgqa.jpeg'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1jr3kek.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1jr3kek.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1jr3kek.jpeg[0]' -auto-orient -resize "600x600" '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/0a9f06420564a7a42b7814c50c2e32d720180414-56221-jfvbvq'
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/0a9f06420564a7a42b7814c50c2e32d720180414-56221-jfvbvq to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/5dcb025883d15168358c12797e80c13820180414-56221-swlw76
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1jr3kek.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1jr3kek.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1jr3kek.jpeg[0]' -auto-orient -resize "300x300" '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/0a9f06420564a7a42b7814c50c2e32d720180414-56221-1sp2gth'
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/0a9f06420564a7a42b7814c50c2e32d720180414-56221-1sp2gth to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/6115e62ef3a530dc4cff9495b934d2c320180414-56221-r5bff9
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1jr3kek.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1jr3kek.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1jr3kek.jpeg[0]' -auto-orient -resize "150x" -crop "150x150+0+0" +repage '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/0a9f06420564a7a42b7814c50c2e32d720180414-56221-haxaa6'
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/0a9f06420564a7a42b7814c50c2e32d720180414-56221-haxaa6 to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/4890bbe6140574d9f49275557c0bada620180414-56221-907s2t
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStore Load (0.5ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[paperclip] Trying to link /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-1jr3kek.jpeg to /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-wr52ns.jpeg
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/T/9d576ec8775eac376723b3d444c101af20180414-56221-wr52ns.jpeg'
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "images_stores" ("store_id", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["store_id", 1], ["image_file_name", "FULANGO.jpeg"], ["image_content_type", "image/jpeg"], ["image_file_size", 41936], ["image_updated_at", "2018-04-14 22:00:04.938733"], ["created_at", "2018-04-14 22:00:05.442908"], ["updated_at", "2018-04-14 22:00:05.442908"]]
+  [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"cmHoDjuTm3_AXJXKGI7eIA\":{\"token\":\"$2a$10$mDly71MqbZlDHDIdYEn0Pe4LJ87cOqXxT66bmRWVUgu7CKrBgvj5S\",\"expiry\":1524952307,\"last_token\":\"$2a$10$wdrxaDXP0cY.nUe.cPxG.uGtXaRL9NNDKf6GLaPyhrouAhPFkF6Oq\",\"updated_at\":\"2018-04-14T18:51:47.446-03:00\"},\"Rcidfz2xg8tGLhjv1zQYXA\":{\"token\":\"$2a$10$sERjWh8/18S5sGLS9QSmq.GMwaLEekLjYliJ7VorPK07Je1krb0jW\",\"expiry\":1524952805,\"last_token\":\"$2a$10$rBEZcmYJ2/rZY0Qe.dUE/OAUiid9P0hCdZ6mKUYWKWxF43JeX0AbO\",\"updated_at\":\"2018-04-14T19:00:05.602-03:00\"}}"], ["updated_at", "2018-04-14 22:00:05.603943"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 840ms (Views: 0.6ms | ActiveRecord: 46.9ms)
+
+
+  [1m[35m (58.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (62.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (312.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "lotus_development"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "lotus_development"[0m
+  [1m[35m (2452.5ms)[0m  [1m[35mCREATE DATABASE "lotus_development" ENCODING = 'utf8'[0m
+  [1m[35m (136.2ms)[0m  [1m[35mCREATE DATABASE "lotus_development" ENCODING = 'utf8'[0m
+  [1m[35m (29.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5265277593975372645)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseTokenAuthCreateUsers (20180301204044)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (45.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "provider" character varying DEFAULT 'email' NOT NULL, "uid" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "email" character varying, "name" character varying, "cpf" character varying, "birthday" date, "gender" character varying, "avatar_file_name" character varying, "avatar_content_type" character varying, "avatar_file_size" integer, "avatar_updated_at" timestamp, "tokens" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_uid_and_provider" ON "users"  ("uid", "provider")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_confirmation_token" ON "users"  ("confirmation_token")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180301204044"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProfiles (20180301204917)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (59.2ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" bigserial primary key, "user_id" bigint, "profile_type" character varying(1) NOT NULL, "function" integer, "current_store" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e424190865"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE  INDEX  "index_profiles_on_user_id" ON "profiles"  ("user_id")[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180301204917"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStores (20180320204112)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "stores" ("id" bigserial primary key, "name" character varying, "CNPJ" character varying, "category" character varying, "longitude" character varying, "latitude" character varying, "avatar_file_name" character varying, "avatar_content_type" character varying, "avatar_file_size" integer, "avatar_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320204112"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServices (20180320204554)
+  [1m[35m (41.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "services" ("id" bigserial primary key, "store_id" bigint, "title" character varying, "name" character varying, "description" character varying, "price" character varying, "time" character varying, "type" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_9db343ab98"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_services_on_store_id" ON "services"  ("store_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320204554"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProducts (20180320205200)
+  [1m[35m (40.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "store_id" bigint, "name" character varying, "amount" integer, "price" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5cf8ff66a6"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_store_id" ON "products"  ("store_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320205200"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServicesProducts (20180320210708)
+  [1m[35m (31.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "services_products" ("id" bigserial primary key, "services_id" bigint, "products_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b626cde39e"
+FOREIGN KEY ("services_id")
+  REFERENCES "services" ("id")
+, CONSTRAINT "fk_rails_e1d1c9216d"
+FOREIGN KEY ("products_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_services_products_on_services_id" ON "services_products"  ("services_id")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_services_products_on_products_id" ON "services_products"  ("products_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320210708"]]
+  [1m[35m (18.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServicesTypes (20180320213432)
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.9ms)[0m  [1m[35mCREATE TABLE "services_types" ("id" bigserial primary key, "services_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_7815af98a6"
+FOREIGN KEY ("services_id")
+  REFERENCES "services" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_services_types_on_services_id" ON "services_types"  ("services_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320213432"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesServices (20180320215504)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "images_services" ("id" bigserial primary key, "service_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_91315c4351"
+FOREIGN KEY ("service_id")
+  REFERENCES "services" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_images_services_on_service_id" ON "images_services"  ("service_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215504"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesProducts (20180320215519)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "images_products" ("id" bigserial primary key, "product_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_58f28d387f"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_images_products_on_product_id" ON "images_products"  ("product_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215519"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesStores (20180320215534)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "images_stores" ("id" bigserial primary key, "store_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_44e852562d"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_images_stores_on_store_id" ON "images_stores"  ("store_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215534"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateContacts (20180322165032)
+  [1m[35m (40.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "contacts" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "phone" character varying, "cellphone" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_8d2134e55e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_0e53faddc1"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_contacts_on_user_id" ON "contacts"  ("user_id")[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_contacts_on_store_id" ON "contacts"  ("store_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322165032"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAddresses (20180322165250)
+  [1m[35m (40.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "addresses" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "street" character varying, "neighborhood" character varying, "public_place" character varying, "number" character varying, "city" character varying, "state" character varying, "country" character varying, "complement" character varying, "cep" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_48c9e0c5a2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_3cebe9f466"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_addresses_on_user_id" ON "addresses"  ("user_id")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_addresses_on_store_id" ON "addresses"  ("store_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322165250"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsersStores (20180322173024)
+  [1m[35m (39.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "users_stores" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_d895140461"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_8a1f92fcd8"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_users_stores_on_user_id" ON "users_stores"  ("user_id")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_stores_on_store_id" ON "users_stores"  ("store_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322173024"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to FkToBeNull (20180404160348)
+  [1m[35m (40.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (24.1ms)[0m  [1m[35mALTER TABLE "addresses" ALTER COLUMN "store_id" DROP DEFAULT[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180404160348"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-16 13:59:59.786182"], ["updated_at", "2018-04-16 13:59:59.786182"]]
+  [1m[35m (40.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5265277593975372645)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/auth" for 127.0.0.1 at 2018-04-16 17:38:38 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Overrides::RegistrationsController#create as */*
+  Parameters: {"email"=>"tony@teste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000", "registration"=>{"email"=>"tony@teste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000"}}
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[36mUser Exists (45.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tony@teste.com"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."provider" = $1 AND "users"."email" = $2[0m  [["provider", "email"], ["email", "tony@teste.com"]]
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 463ms (ActiveRecord: 55.1ms)
+
+
+  
+NoMethodError (undefined method `image_content_type' for #<User:0x00007fd1d44a05a8>):
+  
+app/controllers/overrides/registrations_controller.rb:22:in `block in create'
+app/controllers/overrides/registrations_controller.rb:5:in `create'
+Started POST "/auth" for 127.0.0.1 at 2018-04-16 17:44:33 -0300
+Processing by Overrides::RegistrationsController#create as */*
+  Parameters: {"email"=>"tony@teste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000", "registration"=>{"email"=>"tony@teste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000"}}
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tony@teste.com"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."provider" = $1 AND "users"."email" = $2[0m  [["provider", "email"], ["email", "tony@teste.com"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 403 Forbidden in 166ms (Views: 13.8ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/auth" for 127.0.0.1 at 2018-04-16 17:46:25 -0300
+Processing by Overrides::RegistrationsController#create as */*
+  Parameters: {"email"=>"tony@teste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000", "registration"=>{"email"=>"tony@teste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000"}}
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tony@teste.com"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."provider" = $1 AND "users"."email" = $2[0m  [["provider", "email"], ["email", "tony@teste.com"]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "tony@teste.com"], ["encrypted_password", "$2a$10$xFVwUnCmy7Q6E.qiPGAcj.fD1YcEJVn8g2Dr2wm75jswlkK/49aXu"], ["email", "tony@teste.com"], ["tokens", "{}"], ["created_at", "2018-04-16 20:46:25.995789"], ["updated_at", "2018-04-16 20:46:25.995789"]]
+  [1m[35mSQL (60.6ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "gender" = $2, "tokens" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["name", "tony"], ["gender", "masc"], ["tokens", "{\"BWljYyRk92DSjBe_QNo5Lw\":{\"token\":\"$2a$10$Qloq3PwTgsezDuDuFlXteeIgBwWkj7Kp7p0DltN5is23gqpKA4Agi\",\"expiry\":1525121186}}"], ["updated_at", "2018-04-16 20:46:26.107487"], ["id", 1]]
+  [1m[36mUser Load (41.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (77.2ms)[0m  [1m[32mINSERT INTO "profiles" ("user_id", "profile_type", "function", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["profile_type", "1"], ["function", 1], ["created_at", "2018-04-16 20:46:26.293945"], ["updated_at", "2018-04-16 20:46:26.293945"]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"BWljYyRk92DSjBe_QNo5Lw\":{\"token\":\"$2a$10$o5k0YtV0biCDOt/Z0FjTmeaXDu/UKCpvrdK4upi6HNnQ3wGNDgQGO\",\"expiry\":1525121186,\"last_token\":\"$2a$10$Qloq3PwTgsezDuDuFlXteeIgBwWkj7Kp7p0DltN5is23gqpKA4Agi\",\"updated_at\":\"2018-04-16T17:46:26.477-03:00\"}}"], ["updated_at", "2018-04-16 20:46:26.493304"], ["id", 1]]
+  [1m[35m (41.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 680ms (Views: 0.7ms | ActiveRecord: 230.4ms)
+
+
+Started POST "/auth" for 127.0.0.1 at 2018-04-19 19:04:30 -0300
+  [1m[35m (118.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Overrides::RegistrationsController#create as */*
+  Parameters: {"email"=>"tony@teste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000", "registration"=>{"email"=>"tony@teste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000"}}
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[36mUser Exists (78.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tony@teste.com"], ["LIMIT", 1]]
+  [1m[35m (19.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."provider" = $1 AND "users"."email" = $2[0m  [["provider", "email"], ["email", "tony@teste.com"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 403 Forbidden in 520ms (Views: 1.9ms | ActiveRecord: 202.6ms)
+
+
+Started POST "/auth" for 127.0.0.1 at 2018-04-19 19:05:25 -0300
+Processing by Overrides::RegistrationsController#create as */*
+  Parameters: {"email"=>"tony@nteste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000", "registration"=>{"email"=>"tony@nteste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000"}}
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tony@nteste.com"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."provider" = $1 AND "users"."email" = $2[0m  [["provider", "email"], ["email", "tony@nteste.com"]]
+  [1m[35mSQL (176.8ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "tony@nteste.com"], ["encrypted_password", "$2a$10$5nbmx1JQWvvc9xBtsx7M..Wj1umWban3CmGsCL2uDvWG5qyhpYdMe"], ["email", "tony@nteste.com"], ["tokens", "{}"], ["created_at", "2018-04-19 22:05:25.828394"], ["updated_at", "2018-04-19 22:05:25.828394"]]
+  [1m[35mSQL (85.5ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "gender" = $2, "tokens" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["name", "tony"], ["gender", "masc"], ["tokens", "{\"hmacgXCfTJ22LFpkNA48ow\":{\"token\":\"$2a$10$w2dAYXPYbVyF0NGxSntGnOMCeZiq8NXMj1h9iakDiRiky4hXlYN.q\",\"expiry\":1525385126}}"], ["updated_at", "2018-04-19 22:05:26.156872"], ["id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (54.9ms)[0m  [1m[32mINSERT INTO "profiles" ("user_id", "profile_type", "function", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["profile_type", "1"], ["function", 1], ["created_at", "2018-04-19 22:05:26.442171"], ["updated_at", "2018-04-19 22:05:26.442171"]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"hmacgXCfTJ22LFpkNA48ow\":{\"token\":\"$2a$10$l76ANNI.1M..K6h0sXqEgedl0deORuRxpo1oY/OQeSQDXhd.1pLCy\",\"expiry\":1525385126,\"last_token\":\"$2a$10$w2dAYXPYbVyF0NGxSntGnOMCeZiq8NXMj1h9iakDiRiky4hXlYN.q\",\"updated_at\":\"2018-04-19T19:05:26.602-03:00\"}}"], ["updated_at", "2018-04-19 22:05:26.618845"], ["id", 2]]
+  [1m[35m (42.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 952ms (Views: 1.3ms | ActiveRecord: 412.4ms)
+
+
+Started POST "/auth/sign_in" for 127.0.0.1 at 2018-04-19 19:05:39 -0300
+Processing by Overrides::SessionsController#create as */*
+  Parameters: {"email"=>"tony@nteste.com", "password"=>"[FILTERED]", "session"=>{"email"=>"tony@nteste.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `get_case_insensitive_field_from_resource_params' for #<Overrides::SessionsController:0x00007fa5c49c9908>:
+  app/controllers/overrides/sessions_controller.rb:9:in `create'
+
+Started POST "/auth/sign_in" for 127.0.0.1 at 2018-04-19 19:06:18 -0300
+Processing by Overrides::SessionsController#create as */*
+  Parameters: {"email"=>"tony@nteste.com", "password"=>"[FILTERED]", "session"=>{"email"=>"tony@nteste.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+Completed 500 Internal Server Error in 219ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `get_case_insensitive_field_from_resource_params' for #<Overrides::SessionsController:0x00007fa5c0f4e670>:
+  app/controllers/overrides/sessions_controller.rb:9:in `create'
+
+Started POST "/auth/sign_in" for 127.0.0.1 at 2018-04-19 19:06:58 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Overrides::SessionsController#create as */*
+  Parameters: {"email"=>"tony@nteste.com", "password"=>"[FILTERED]", "session"=>{"email"=>"tony@nteste.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+Completed 500 Internal Server Error in 187ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `get_case_insensitive_field_from_resource_params' for #<Overrides::SessionsController:0x00007fad82af1bf8>):
+  
+app/controllers/overrides/sessions_controller.rb:9:in `create'
+  [1m[35m (15.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (48.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (385.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "lotus_development"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "lotus_development"[0m
+  [1m[35m (1261.9ms)[0m  [1m[35mCREATE DATABASE "lotus_development" ENCODING = 'utf8'[0m
+  [1m[35m (18.6ms)[0m  [1m[35mCREATE DATABASE "lotus_development" ENCODING = 'utf8'[0m
+  [1m[35m (58.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5265277593975372645)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseTokenAuthCreateUsers (20180301204044)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (71.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "provider" character varying DEFAULT 'email' NOT NULL, "uid" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "email" character varying, "name" character varying, "cpf" character varying, "birthday" date, "gender" character varying, "avatar_file_name" character varying, "avatar_content_type" character varying, "avatar_file_size" integer, "avatar_updated_at" timestamp, "tokens" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_uid_and_provider" ON "users"  ("uid", "provider")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_confirmation_token" ON "users"  ("confirmation_token")[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180301204044"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProfiles (20180301204917)
+  [1m[35m (39.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" bigserial primary key, "user_id" bigint, "profile_type" character varying(1) NOT NULL, "function" integer, "current_store" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e424190865"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_profiles_on_user_id" ON "profiles"  ("user_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180301204917"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStores (20180320204112)
+  [1m[35m (40.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "stores" ("id" bigserial primary key, "name" character varying, "CNPJ" character varying, "category" character varying, "longitude" character varying, "latitude" character varying, "avatar_file_name" character varying, "avatar_content_type" character varying, "avatar_file_size" integer, "avatar_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320204112"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServices (20180320204554)
+  [1m[35m (40.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "services" ("id" bigserial primary key, "store_id" bigint, "title" character varying, "name" character varying, "description" character varying, "price" character varying, "time" character varying, "type" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_9db343ab98"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_services_on_store_id" ON "services"  ("store_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320204554"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProducts (20180320205200)
+  [1m[35m (41.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "store_id" bigint, "name" character varying, "amount" integer, "price" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5cf8ff66a6"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_store_id" ON "products"  ("store_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320205200"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServicesProducts (20180320210708)
+  [1m[35m (40.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "services_products" ("id" bigserial primary key, "services_id" bigint, "products_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b626cde39e"
+FOREIGN KEY ("services_id")
+  REFERENCES "services" ("id")
+, CONSTRAINT "fk_rails_e1d1c9216d"
+FOREIGN KEY ("products_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_services_products_on_services_id" ON "services_products"  ("services_id")[0m
+  [1m[35m (42.5ms)[0m  [1m[35mCREATE  INDEX  "index_services_products_on_products_id" ON "services_products"  ("products_id")[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320210708"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServicesTypes (20180320213432)
+  [1m[35m (40.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "services_types" ("id" bigserial primary key, "services_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_7815af98a6"
+FOREIGN KEY ("services_id")
+  REFERENCES "services" ("id")
+)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_services_types_on_services_id" ON "services_types"  ("services_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320213432"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesServices (20180320215504)
+  [1m[35m (40.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "images_services" ("id" bigserial primary key, "service_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_91315c4351"
+FOREIGN KEY ("service_id")
+  REFERENCES "services" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_images_services_on_service_id" ON "images_services"  ("service_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215504"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesProducts (20180320215519)
+  [1m[35m (40.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (17.8ms)[0m  [1m[35mCREATE TABLE "images_products" ("id" bigserial primary key, "product_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_58f28d387f"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_images_products_on_product_id" ON "images_products"  ("product_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215519"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesStores (20180320215534)
+  [1m[35m (41.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "images_stores" ("id" bigserial primary key, "store_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_44e852562d"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_images_stores_on_store_id" ON "images_stores"  ("store_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215534"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateContacts (20180322165032)
+  [1m[35m (40.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "contacts" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "phone" character varying, "cellphone" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_8d2134e55e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_0e53faddc1"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_contacts_on_user_id" ON "contacts"  ("user_id")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_contacts_on_store_id" ON "contacts"  ("store_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322165032"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAddresses (20180322165250)
+  [1m[35m (40.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "addresses" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "street" character varying, "neighborhood" character varying, "public_place" character varying, "number" character varying, "city" character varying, "state" character varying, "country" character varying, "complement" character varying, "cep" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_48c9e0c5a2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_3cebe9f466"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_addresses_on_user_id" ON "addresses"  ("user_id")[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_addresses_on_store_id" ON "addresses"  ("store_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322165250"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsersStores (20180322173024)
+  [1m[35m (40.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "users_stores" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_d895140461"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_8a1f92fcd8"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_users_stores_on_user_id" ON "users_stores"  ("user_id")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_stores_on_store_id" ON "users_stores"  ("store_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322173024"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to FkToBeNull (20180404160348)
+  [1m[35m (40.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "addresses" ALTER COLUMN "store_id" DROP DEFAULT[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180404160348"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-24 21:16:35.971461"], ["updated_at", "2018-04-24 21:16:35.971461"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5265277593975372645)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (202.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "lotus_development"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "lotus_development"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "lotus_development"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "lotus_development"[0m
+  [1m[35m (848.6ms)[0m  [1m[35mCREATE DATABASE "lotus_development" ENCODING = 'utf8'[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "lotus_development" ENCODING = 'utf8'[0m
+  [1m[35m (39.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5265277593975372645)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseTokenAuthCreateUsers (20180301204044)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (48.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "provider" character varying DEFAULT 'email' NOT NULL, "uid" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "email" character varying, "name" character varying, "cpf" character varying, "birthday" date, "gender" character varying, "avatar_file_name" character varying, "avatar_content_type" character varying, "avatar_file_size" integer, "avatar_updated_at" timestamp, "tokens" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_uid_and_provider" ON "users"  ("uid", "provider")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_confirmation_token" ON "users"  ("confirmation_token")[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180301204044"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProfiles (20180301204917)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" bigserial primary key, "user_id" bigint, "profile_type" character varying(1) NOT NULL, "function" integer, "current_store" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e424190865"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_profiles_on_user_id" ON "profiles"  ("user_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180301204917"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStores (20180320204112)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "stores" ("id" bigserial primary key, "name" character varying, "CNPJ" character varying, "category" character varying, "longitude" character varying, "latitude" character varying, "avatar_file_name" character varying, "avatar_content_type" character varying, "avatar_file_size" integer, "avatar_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320204112"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServices (20180320204554)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "services" ("id" bigserial primary key, "store_id" bigint, "title" character varying, "name" character varying, "description" character varying, "price" character varying, "time" character varying, "type" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_9db343ab98"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_services_on_store_id" ON "services"  ("store_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320204554"]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProducts (20180320205200)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "store_id" bigint, "name" character varying, "amount" integer, "price" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5cf8ff66a6"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (28.7ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_store_id" ON "products"  ("store_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320205200"]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServicesProducts (20180320210708)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "services_products" ("id" bigserial primary key, "services_id" bigint, "products_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b626cde39e"
+FOREIGN KEY ("services_id")
+  REFERENCES "services" ("id")
+, CONSTRAINT "fk_rails_e1d1c9216d"
+FOREIGN KEY ("products_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_services_products_on_services_id" ON "services_products"  ("services_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_services_products_on_products_id" ON "services_products"  ("products_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320210708"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServicesTypes (20180320213432)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "services_types" ("id" bigserial primary key, "services_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_7815af98a6"
+FOREIGN KEY ("services_id")
+  REFERENCES "services" ("id")
+)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_services_types_on_services_id" ON "services_types"  ("services_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320213432"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesServices (20180320215504)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "images_services" ("id" bigserial primary key, "service_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_91315c4351"
+FOREIGN KEY ("service_id")
+  REFERENCES "services" ("id")
+)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE  INDEX  "index_images_services_on_service_id" ON "images_services"  ("service_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215504"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesProducts (20180320215519)
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "images_products" ("id" bigserial primary key, "product_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_58f28d387f"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_images_products_on_product_id" ON "images_products"  ("product_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215519"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesStores (20180320215534)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "images_stores" ("id" bigserial primary key, "store_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_44e852562d"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_images_stores_on_store_id" ON "images_stores"  ("store_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215534"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateContacts (20180322165032)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "contacts" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "phone" character varying, "cellphone" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_8d2134e55e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_0e53faddc1"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_contacts_on_user_id" ON "contacts"  ("user_id")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_contacts_on_store_id" ON "contacts"  ("store_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322165032"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAddresses (20180322165250)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "addresses" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "street" character varying, "neighborhood" character varying, "public_place" character varying, "number" character varying, "city" character varying, "state" character varying, "country" character varying, "complement" character varying, "cep" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_48c9e0c5a2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_3cebe9f466"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_addresses_on_user_id" ON "addresses"  ("user_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_addresses_on_store_id" ON "addresses"  ("store_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322165250"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsersStores (20180322173024)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "users_stores" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_d895140461"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_8a1f92fcd8"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_stores_on_user_id" ON "users_stores"  ("user_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_users_stores_on_store_id" ON "users_stores"  ("store_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322173024"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to FkToBeNull (20180404160348)
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "addresses" ALTER COLUMN "store_id" DROP DEFAULT[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180404160348"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-24 21:25:01.245142"], ["updated_at", "2018-04-24 21:25:01.245142"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5265277593975372645)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (126.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "lotus_development"[0m
+  [1m[35m (1.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "lotus_development"[0m
+  [1m[35m (1208.4ms)[0m  [1m[35mCREATE DATABASE "lotus_development" ENCODING = 'utf8'[0m
+  [1m[35m (17.6ms)[0m  [1m[35mCREATE DATABASE "lotus_development" ENCODING = 'utf8'[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5265277593975372645)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseTokenAuthCreateUsers (20180301204044)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (22.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "provider" character varying DEFAULT 'email' NOT NULL, "uid" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "email" character varying, "name" character varying, "cpf" character varying, "birthday" date, "gender" character varying, "avatar_file_name" character varying, "avatar_content_type" character varying, "avatar_file_size" integer, "avatar_updated_at" timestamp, "tokens" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_uid_and_provider" ON "users"  ("uid", "provider")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_confirmation_token" ON "users"  ("confirmation_token")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180301204044"]]
+  [1m[35m (8.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProfiles (20180301204917)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" bigserial primary key, "user_id" bigint, "profile_type" character varying(1) NOT NULL, "function" integer, "current_store" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e424190865"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_profiles_on_user_id" ON "profiles"  ("user_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180301204917"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStores (20180320204112)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "stores" ("id" bigserial primary key, "name" character varying, "CNPJ" character varying, "category" character varying, "longitude" character varying, "latitude" character varying, "avatar_file_name" character varying, "avatar_content_type" character varying, "avatar_file_size" integer, "avatar_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320204112"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServices (20180320204554)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "services" ("id" bigserial primary key, "store_id" bigint, "title" character varying, "name" character varying, "description" character varying, "price" character varying, "time" character varying, "type" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_9db343ab98"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_services_on_store_id" ON "services"  ("store_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320204554"]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProducts (20180320205200)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "store_id" bigint, "name" character varying, "amount" integer, "price" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5cf8ff66a6"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_store_id" ON "products"  ("store_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320205200"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServicesProducts (20180320210708)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "services_products" ("id" bigserial primary key, "services_id" bigint, "products_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b626cde39e"
+FOREIGN KEY ("services_id")
+  REFERENCES "services" ("id")
+, CONSTRAINT "fk_rails_e1d1c9216d"
+FOREIGN KEY ("products_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_services_products_on_services_id" ON "services_products"  ("services_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_services_products_on_products_id" ON "services_products"  ("products_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320210708"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServicesTypes (20180320213432)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "services_types" ("id" bigserial primary key, "services_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_7815af98a6"
+FOREIGN KEY ("services_id")
+  REFERENCES "services" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_services_types_on_services_id" ON "services_types"  ("services_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320213432"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesServices (20180320215504)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "images_services" ("id" bigserial primary key, "service_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_91315c4351"
+FOREIGN KEY ("service_id")
+  REFERENCES "services" ("id")
+)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_images_services_on_service_id" ON "images_services"  ("service_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215504"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesProducts (20180320215519)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "images_products" ("id" bigserial primary key, "product_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_58f28d387f"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_images_products_on_product_id" ON "images_products"  ("product_id")[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215519"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesStores (20180320215534)
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "images_stores" ("id" bigserial primary key, "store_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_44e852562d"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_images_stores_on_store_id" ON "images_stores"  ("store_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215534"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateContacts (20180322165032)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "contacts" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "phone" character varying, "cellphone" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_8d2134e55e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_0e53faddc1"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_contacts_on_user_id" ON "contacts"  ("user_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_contacts_on_store_id" ON "contacts"  ("store_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322165032"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAddresses (20180322165250)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "addresses" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "street" character varying, "neighborhood" character varying, "public_place" character varying, "number" character varying, "city" character varying, "state" character varying, "country" character varying, "complement" character varying, "cep" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_48c9e0c5a2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_3cebe9f466"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_addresses_on_user_id" ON "addresses"  ("user_id")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_addresses_on_store_id" ON "addresses"  ("store_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322165250"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsersStores (20180322173024)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "users_stores" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_d895140461"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_8a1f92fcd8"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_users_stores_on_user_id" ON "users_stores"  ("user_id")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_users_stores_on_store_id" ON "users_stores"  ("store_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322173024"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to FkToBeNull (20180404160348)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "addresses" ALTER COLUMN "store_id" DROP DEFAULT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "addresses" ALTER COLUMN "user_id" DROP DEFAULT[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "contacts" ALTER COLUMN "store_id" DROP DEFAULT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "contacts" ALTER COLUMN "user_id" DROP DEFAULT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "images_stores" ALTER COLUMN "store_id" DROP DEFAULT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180404160348"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-24 21:35:36.796020"], ["updated_at", "2018-04-24 21:35:36.796020"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5265277593975372645)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/auth" for 127.0.0.1 at 2018-04-24 18:35:58 -0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Overrides::RegistrationsController#create as */*
+  Parameters: {"email"=>"tony@teste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000", "registration"=>{"email"=>"tony@teste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000"}}
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[36mUser Exists (52.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tony@teste.com"], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."provider" = $1 AND "users"."email" = $2[0m  [["provider", "email"], ["email", "tony@teste.com"]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "tony@teste.com"], ["encrypted_password", "$2a$10$HmdGe3QNriPsTxPr1UkzPeQ0das81uisSYGV4k/5akKD1aJu5s.Da"], ["email", "tony@teste.com"], ["tokens", "{}"], ["created_at", "2018-04-24 21:35:59.230200"], ["updated_at", "2018-04-24 21:35:59.230200"]]
+  [1m[35mSQL (1.2ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "gender" = $2, "tokens" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["name", "tony"], ["gender", "masc"], ["tokens", "{\"O5HQowpEqSRJTS6zL0Hlpg\":{\"token\":\"$2a$10$h0MUbjPJ/ZzALTbr7PyaQerjgM6YWxFf3Z0uPVMCdjJodibZeCDyq\",\"expiry\":1525815359}}"], ["updated_at", "2018-04-24 21:35:59.357682"], ["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (73.3ms)[0m  [1m[32mINSERT INTO "profiles" ("user_id", "profile_type", "function", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["profile_type", "1"], ["function", 1], ["created_at", "2018-04-24 21:35:59.439620"], ["updated_at", "2018-04-24 21:35:59.439620"]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"O5HQowpEqSRJTS6zL0Hlpg\":{\"token\":\"$2a$10$STB.Tw8zar0mfV480.jmH.zzD/OAGsfvCQVceMU2mGPS/cHgvviCy\",\"expiry\":1525815359,\"last_token\":\"$2a$10$h0MUbjPJ/ZzALTbr7PyaQerjgM6YWxFf3Z0uPVMCdjJodibZeCDyq\",\"updated_at\":\"2018-04-24T18:35:59.615-03:00\"}}"], ["updated_at", "2018-04-24 21:35:59.631592"], ["id", 1]]
+  [1m[35m (40.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 844ms (Views: 1.2ms | ActiveRecord: 186.7ms)
+
+
+Started POST "/store/create" for 127.0.0.1 at 2018-04-24 18:36:25 -0300
+Processing by StoresController#create as */*
+  Parameters: {"name"=>"MM grupo", "CNPJ"=>"123456789", "category"=>"THE SAD of TECHNOLOGY", "longitude"=>"123456789", "latitude"=>"12345678", "store"=>{"name"=>"MM grupo", "CNPJ"=>"123456789", "category"=>"THE SAD of TECHNOLOGY", "longitude"=>"123456789", "latitude"=>"12345678"}}
+  [1m[36mUser Load (11.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "tony@teste.com"], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 208ms (Views: 0.2ms | ActiveRecord: 18.7ms)
+
+
+  
+NoMethodError (undefined method `image_content_type' for #<Store:0x00007f9cae1c2508>):
+  
+app/controllers/stores_controller.rb:10:in `create'
+Started POST "/store/create" for 127.0.0.1 at 2018-04-24 18:38:34 -0300
+Processing by StoresController#create as */*
+  Parameters: {"name"=>"MM grupo", "CNPJ"=>"123456789", "category"=>"THE SAD of TECHNOLOGY", "longitude"=>"123456789", "latitude"=>"12345678", "store"=>{"name"=>"MM grupo", "CNPJ"=>"123456789", "category"=>"THE SAD of TECHNOLOGY", "longitude"=>"123456789", "latitude"=>"12345678"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "tony@teste.com"], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (7.2ms)[0m  [1m[32mINSERT INTO "stores" ("name", "CNPJ", "category", "longitude", "latitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "MM grupo"], ["CNPJ", "123456789"], ["category", "THE SAD of TECHNOLOGY"], ["longitude", "123456789"], ["latitude", "12345678"], ["created_at", "2018-04-24 21:38:44.846989"], ["updated_at", "2018-04-24 21:38:44.846989"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (1.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (40.5ms)[0m  [1m[32mINSERT INTO "users_stores" ("user_id", "store_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["store_id", 1], ["created_at", "2018-04-24 21:38:44.887529"], ["updated_at", "2018-04-24 21:38:44.887529"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 252ms (Views: 0.1ms | ActiveRecord: 72.7ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/helpers/application_helper.rb:4:in `render_json'
+app/controllers/stores_controller.rb:14:in `create'
+Started POST "/auth" for 127.0.0.1 at 2018-04-24 18:41:55 -0300
+Processing by Overrides::RegistrationsController#create as */*
+  Parameters: {"email"=>"tony@teste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000", "registration"=>{"email"=>"tony@teste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000"}}
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tony@teste.com"], ["LIMIT", 1]]
+  [1m[35m (8.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."provider" = $1 AND "users"."email" = $2[0m  [["provider", "email"], ["email", "tony@teste.com"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 403 Forbidden in 117ms (Views: 1.4ms | ActiveRecord: 9.9ms)
+
+
+Started POST "/store/create" for 127.0.0.1 at 2018-04-24 18:46:13 -0300
+Processing by StoresController#create as */*
+  Parameters: {"name"=>"MM grupo", "CNPJ"=>"123456789", "category"=>"THE SAD of TECHNOLOGY", "longitude"=>"123456789", "latitude"=>"12345678", "store"=>{"name"=>"MM grupo", "CNPJ"=>"123456789", "category"=>"THE SAD of TECHNOLOGY", "longitude"=>"123456789", "latitude"=>"12345678"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "tony@teste.com"], ["LIMIT", 1]]
+  [1m[36mProfile Load (1.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "stores" ("name", "CNPJ", "category", "longitude", "latitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "MM grupo"], ["CNPJ", "123456789"], ["category", "THE SAD of TECHNOLOGY"], ["longitude", "123456789"], ["latitude", "12345678"], ["created_at", "2018-04-24 21:46:13.329424"], ["updated_at", "2018-04-24 21:46:13.329424"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.4ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users_stores" ("user_id", "store_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["store_id", 2], ["created_at", "2018-04-24 21:46:13.357777"], ["updated_at", "2018-04-24 21:46:13.357777"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 210ms (Views: 0.2ms | ActiveRecord: 22.0ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/helpers/application_helper.rb:4:in `render_json'
+app/controllers/stores_controller.rb:14:in `create'
+Started POST "/store/create" for 127.0.0.1 at 2018-04-24 18:47:22 -0300
+Processing by StoresController#create as */*
+  Parameters: {"name"=>"MM grupo", "CNPJ"=>"123456789", "category"=>"THE SAD of TECHNOLOGY", "longitude"=>"123456789", "latitude"=>"12345678", "store"=>{"name"=>"MM grupo", "CNPJ"=>"123456789", "category"=>"THE SAD of TECHNOLOGY", "longitude"=>"123456789", "latitude"=>"12345678"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "tony@teste.com"], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.8ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "stores" ("name", "CNPJ", "category", "longitude", "latitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "MM grupo"], ["CNPJ", "123456789"], ["category", "THE SAD of TECHNOLOGY"], ["longitude", "123456789"], ["latitude", "12345678"], ["created_at", "2018-04-24 21:47:22.997007"], ["updated_at", "2018-04-24 21:47:22.997007"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.5ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users_stores" ("user_id", "store_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["store_id", 3], ["created_at", "2018-04-24 21:47:23.018077"], ["updated_at", "2018-04-24 21:47:23.018077"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 213ms (Views: 0.3ms | ActiveRecord: 6.2ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/helpers/application_helper.rb:4:in `render_json'
+app/controllers/stores_controller.rb:14:in `create'
+  [1m[35m (5.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (204.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "lotus_development"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "lotus_development"[0m
+  [1m[35m (1051.6ms)[0m  [1m[35mCREATE DATABASE "lotus_development" ENCODING = 'utf8'[0m
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE DATABASE "lotus_development" ENCODING = 'utf8'[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5265277593975372645)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseTokenAuthCreateUsers (20180301204044)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (46.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "provider" character varying DEFAULT 'email' NOT NULL, "uid" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "email" character varying, "name" character varying, "cpf" character varying, "birthday" date, "gender" character varying, "avatar_file_name" character varying, "avatar_content_type" character varying, "avatar_file_size" integer, "avatar_updated_at" timestamp, "tokens" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_uid_and_provider" ON "users"  ("uid", "provider")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_confirmation_token" ON "users"  ("confirmation_token")[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180301204044"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProfiles (20180301204917)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" bigserial primary key, "user_id" bigint, "profile_type" character varying(1) NOT NULL, "function" integer, "current_store" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e424190865"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_profiles_on_user_id" ON "profiles"  ("user_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180301204917"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStores (20180320204112)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "stores" ("id" bigserial primary key, "name" character varying, "CNPJ" character varying, "category" character varying, "longitude" character varying, "latitude" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320204112"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServices (20180320204554)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "services" ("id" bigserial primary key, "store_id" bigint, "title" character varying, "name" character varying, "description" character varying, "price" character varying, "time" character varying, "type" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_9db343ab98"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_services_on_store_id" ON "services"  ("store_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320204554"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProducts (20180320205200)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "store_id" bigint, "name" character varying, "amount" integer, "price" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5cf8ff66a6"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_store_id" ON "products"  ("store_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320205200"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServicesProducts (20180320210708)
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "services_products" ("id" bigserial primary key, "services_id" bigint, "products_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b626cde39e"
+FOREIGN KEY ("services_id")
+  REFERENCES "services" ("id")
+, CONSTRAINT "fk_rails_e1d1c9216d"
+FOREIGN KEY ("products_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_services_products_on_services_id" ON "services_products"  ("services_id")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_services_products_on_products_id" ON "services_products"  ("products_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320210708"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateServicesTypes (20180320213432)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "services_types" ("id" bigserial primary key, "services_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_7815af98a6"
+FOREIGN KEY ("services_id")
+  REFERENCES "services" ("id")
+)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_services_types_on_services_id" ON "services_types"  ("services_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320213432"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesServices (20180320215504)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "images_services" ("id" bigserial primary key, "service_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_91315c4351"
+FOREIGN KEY ("service_id")
+  REFERENCES "services" ("id")
+)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_images_services_on_service_id" ON "images_services"  ("service_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215504"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesProducts (20180320215519)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "images_products" ("id" bigserial primary key, "product_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_58f28d387f"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_images_products_on_product_id" ON "images_products"  ("product_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215519"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImagesStores (20180320215534)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "images_stores" ("id" bigserial primary key, "store_id" bigint, "image_file_name" character varying, "image_content_type" character varying, "image_file_size" integer, "image_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_44e852562d"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_images_stores_on_store_id" ON "images_stores"  ("store_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180320215534"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateContacts (20180322165032)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "contacts" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "phone" character varying, "cellphone" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_8d2134e55e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_0e53faddc1"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_contacts_on_user_id" ON "contacts"  ("user_id")[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_contacts_on_store_id" ON "contacts"  ("store_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322165032"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAddresses (20180322165250)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "addresses" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "street" character varying, "neighborhood" character varying, "public_place" character varying, "number" character varying, "city" character varying, "state" character varying, "country" character varying, "complement" character varying, "cep" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_48c9e0c5a2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_3cebe9f466"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_addresses_on_user_id" ON "addresses"  ("user_id")[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_addresses_on_store_id" ON "addresses"  ("store_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322165250"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsersStores (20180322173024)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "users_stores" ("id" bigserial primary key, "user_id" bigint, "store_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_d895140461"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_8a1f92fcd8"
+FOREIGN KEY ("store_id")
+  REFERENCES "stores" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_stores_on_user_id" ON "users_stores"  ("user_id")[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE  INDEX  "index_users_stores_on_store_id" ON "users_stores"  ("store_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180322173024"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to FkToBeNull (20180404160348)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "addresses" ALTER COLUMN "store_id" DROP DEFAULT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "addresses" ALTER COLUMN "user_id" DROP DEFAULT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "contacts" ALTER COLUMN "store_id" DROP DEFAULT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "contacts" ALTER COLUMN "user_id" DROP DEFAULT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "images_stores" ALTER COLUMN "store_id" DROP DEFAULT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180404160348"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-24 21:55:05.924409"], ["updated_at", "2018-04-24 21:55:05.924409"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5265277593975372645)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/auth" for 127.0.0.1 at 2018-04-24 18:55:32 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Overrides::RegistrationsController#create as */*
+  Parameters: {"email"=>"tony@teste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000", "registration"=>{"email"=>"tony@teste.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000"}}
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tony@teste.com"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."provider" = $1 AND "users"."email" = $2[0m  [["provider", "email"], ["email", "tony@teste.com"]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "tony@teste.com"], ["encrypted_password", "$2a$10$z033dIGnBtCCQfT.OVjypOlGxwGxHOGopZx7oAs6EJPO2TbgsfjPW"], ["email", "tony@teste.com"], ["tokens", "{}"], ["created_at", "2018-04-24 21:55:32.719935"], ["updated_at", "2018-04-24 21:55:32.719935"]]
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "gender" = $2, "tokens" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["name", "tony"], ["gender", "masc"], ["tokens", "{\"Bk_BProY0O6WdsRlaUrmzQ\":{\"token\":\"$2a$10$bXNikzq3sy/Q1SUzLK.9PeUDiEZlR2PKuheRWw.Jo5CPpwyeNO3jq\",\"expiry\":1525816532}}"], ["updated_at", "2018-04-24 21:55:32.814389"], ["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "profiles" ("user_id", "profile_type", "function", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["profile_type", "1"], ["function", 1], ["created_at", "2018-04-24 21:55:32.890689"], ["updated_at", "2018-04-24 21:55:32.890689"]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"Bk_BProY0O6WdsRlaUrmzQ\":{\"token\":\"$2a$10$tIs6GVudKDH2TKFNXAUN6OQ5Dd3kZ3IFnpU2bWci6Vs.E8i3oXFWy\",\"expiry\":1525816532,\"last_token\":\"$2a$10$bXNikzq3sy/Q1SUzLK.9PeUDiEZlR2PKuheRWw.Jo5CPpwyeNO3jq\",\"updated_at\":\"2018-04-24T18:55:32.991-03:00\"}}"], ["updated_at", "2018-04-24 21:55:32.992390"], ["id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 583ms (Views: 0.8ms | ActiveRecord: 21.6ms)
+
+
+Started POST "/store/create" for 127.0.0.1 at 2018-04-24 18:56:55 -0300
+Processing by StoresController#create as */*
+  Parameters: {"name"=>"MM grupo", "CNPJ"=>"123456789", "category"=>"THE SAD of TECHNOLOGY", "longitude"=>"123456789", "latitude"=>"12345678", "store"=>{"name"=>"MM grupo", "CNPJ"=>"123456789", "category"=>"THE SAD of TECHNOLOGY", "longitude"=>"123456789", "latitude"=>"12345678"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "tony@teste.com"], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "stores" ("name", "CNPJ", "category", "longitude", "latitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "MM grupo"], ["CNPJ", "123456789"], ["category", "THE SAD of TECHNOLOGY"], ["longitude", "123456789"], ["latitude", "12345678"], ["created_at", "2018-04-24 21:56:55.786548"], ["updated_at", "2018-04-24 21:56:55.786548"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (1.4ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.9ms)[0m  [1m[32mINSERT INTO "users_stores" ("user_id", "store_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["store_id", 1], ["created_at", "2018-04-24 21:56:55.827602"], ["updated_at", "2018-04-24 21:56:55.827602"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 168ms (Views: 0.2ms | ActiveRecord: 22.1ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/helpers/application_helper.rb:4:in `render_json'
+app/controllers/stores_controller.rb:14:in `create'
+Started POST "/store/create" for 127.0.0.1 at 2018-04-24 18:57:29 -0300
+Processing by StoresController#create as */*
+  Parameters: {"name"=>"MM grupo", "CNPJ"=>"123456789", "category"=>"THE SAD of TECHNOLOGY", "longitude"=>"123456789", "latitude"=>"12345678", "store"=>{"name"=>"MM grupo", "CNPJ"=>"123456789", "category"=>"THE SAD of TECHNOLOGY", "longitude"=>"123456789", "latitude"=>"12345678"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "tony@teste.com"], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "stores" ("name", "CNPJ", "category", "longitude", "latitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "MM grupo"], ["CNPJ", "123456789"], ["category", "THE SAD of TECHNOLOGY"], ["longitude", "123456789"], ["latitude", "12345678"], ["created_at", "2018-04-24 21:57:39.349813"], ["updated_at", "2018-04-24 21:57:39.349813"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.7ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "users_stores" ("user_id", "store_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["store_id", 2], ["created_at", "2018-04-24 21:57:39.388531"], ["updated_at", "2018-04-24 21:57:39.388531"]]
+  [1m[35m (281.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 514ms (Views: 0.3ms | ActiveRecord: 308.8ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/helpers/application_helper.rb:4:in `render_json'
+app/controllers/stores_controller.rb:14:in `create'

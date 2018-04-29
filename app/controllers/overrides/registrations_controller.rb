@@ -53,13 +53,19 @@ module Overrides
 
                     render json: {
                         status: 'success',
-                        data:   @resource.as_json
+                        data:  resource = {
+                            data1: @resource,
+                            data2: @profile
+                        }.as_json
                     }
                 else
                     clean_up_passwords @resource
                     render json: {
                         status: 'error',
-                        data:   @resource,
+                        data:  resource = {
+                            data1: @resource,
+                            data2: @profile
+                            },
                         errors: @resource.errors
                      }, status: 403
                 end
@@ -74,17 +80,7 @@ module Overrides
             end
         end
 
-        def user_data_update
-            if current_user
-                @user = current_user
-                @user.email = current_user.email
-                @user.name = params[:name]
-                @user.gender = params[:gender]
-                @user.birthday = params[:birthday]
-                @user.cpf = params[:cpf]
 
-                @user.update
-            end
-        end
+
     end
 end

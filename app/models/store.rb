@@ -3,4 +3,5 @@ class Store < ApplicationRecord
     has_many :addresses
     has_many :contacts
     has_many :products
+    
 end

@@ -69,6 +69,10 @@ ActiveRecord::Schema.define(version: 20180404160348) do
 
   create_table "images_stores", force: :cascade do |t|
     t.bigint "store_id"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["store_id"], name: "index_images_stores_on_store_id"
@@ -158,6 +162,10 @@ ActiveRecord::Schema.define(version: 20180404160348) do
     t.string "cpf"
     t.date "birthday"
     t.string "gender"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.text "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

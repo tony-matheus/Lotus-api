@@ -39,6 +39,7 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[5.1]
       t.string :cpf
       t.date :birthday
       t.string :gender
+      t.attachment :avatar
       # t.string :type
 
       ## Tokens

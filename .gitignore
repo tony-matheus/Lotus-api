@@ -10,3 +10,7 @@ tmp/
 /yarn-error.log
 
 .byebug_history
+
+public/system/
+
+log/

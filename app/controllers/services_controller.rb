@@ -1,23 +1,9 @@
 class ServicesController < ApplicationController
-    before_action :authenticate_user!
-    def method
-        # descobrir a loja pelo current_user (tooken)
-        # dados params[]
-        # images = params[:images]
-        # @images.each do |x|
-            # ImagesService.create(:params =>loja,:image=> x)
-        #end
+    before_action :authenticate_user! 
 
-        #para criacao do produto mesma merda
-        #para criacao da loja mesma merda
-
-        #caso o servico tenha relacao com o produto
-        #salvar na tabela de serice_produtc o id do servico e do produto
-    end
     def create_service
-        if current_user
+        if current_user()
             @service = Service.new(service_params())
-            # if @service.save! && service_images
             if @service.save!
                 render_json(200, "service has been create")
             else
@@ -30,12 +16,24 @@ class ServicesController < ApplicationController
         end
     end
 
+    def update_service
+        if current_user()
+            @service_id = params[:service_id]
+            @service = Service.find(@service_id)
+            if @service.update(service_params())
+                render_json(200,@service)
+            else
+                render_json(500,"error to update service")
+            end
+        end
+    end
+
     def show_service
-        if current_user
+        if current_user()
             begin
                 screen = params[:screen]
                 if screen == 1
-                    @store = find_store_by_user_id(current_user)
+                    @store = find_store_by_user_id(current_user())
                     @services = Service.find(store.id).all()
                 else
                     @services = Service.all()
@@ -51,20 +49,8 @@ class ServicesController < ApplicationController
         end
     end
 
-    def update_service
-        if current_user
-            @service_id = params[:service_id]
-            @service = Service.find(@service_id)
-            if @service.update(service_params)
-                render_json(200,@service)
-            else
-                render_json(500,"error to update service")
-            end
-        end
-    end
-
     def destroy_service
-        if current_user
+        if current_user()
             @store_id = params[:store_id]
             if @store_id == nil
                 Store.find_by(user_id: current_user.id).destroy()
@@ -75,9 +61,13 @@ class ServicesController < ApplicationController
         end
     end
 
+    #
+    # Products
+    #
+
     def create_products
         Product.transaction do
-            ServicesProduct.transaction do        
+            ServicesProduct.transaction do
                 count = 0
                 @products = params[:products]
                 @products.each do |product|
@@ -98,6 +88,13 @@ class ServicesController < ApplicationController
         end
     end
 
+    def update_products
+        @product_id = params[:product_id]
+        @product = Product.find(@product_id)
+        if product.update(product_params())
+            render_json(200, @product)
+        end
+    end
 
     def show_all_products
         @store_id = session[:store_id]
@@ -117,20 +114,34 @@ class ServicesController < ApplicationController
         render_json(302,@products)
     end
 
-    def update_products
-        @product_id = params[:product_id]
-        @product = Product.find(@product_id)
-        if product.update(product_params())
-            render_json(200, @product)
-        end
-    end
-
     def destroy_products
         @product_id = params[:product_id]
         if Product.find(@product_id).destroy()
             render_json(200, "product has been deleted")
         else
             render_json(500, "failed to delete product")
+        end
+    end
+
+    def service_images
+        @index = :service_id
+        @index_id = params[:service_id]
+        @imageService = ImagesService.new(service_images_params(@@service_id))
+        if @imageService.save
+            render_json(200,@imageService.image.url(:medium))
+        else
+            render_json(500, msg = {msg1: @image, msg2: @imagesService})
+        end
+    end
+
+    def product_images
+        @index = :product_id
+        @index_id = params[:product_id]
+        @imageProduct = ImagesService.new(product_images_params(@@product_id))
+        if @imageProduct.save
+            render_json(200,@imageProduct.image.url(:medium))
+        else
+            render_json(500, msg = {msg1: @image, msg2: @imageProduct})
         end
     end
 
@@ -149,7 +160,7 @@ class ServicesController < ApplicationController
     end
 
     def service_params
-        service = {
+        @@service = {
             :store_id => session[:store_id],
             :title => params[:title],
             :name => params[:name],
@@ -158,32 +169,16 @@ class ServicesController < ApplicationController
             :time => params[:time],
             :type => params[:type]
         }
-        return service
+        return @@service
     end
 
     def product_params(product)
-        product_data = {
+        @@product_data = {
             :store_id => session[:store_id],
             :name => product.name,
             :amount => product.amount,
             :price => product.price
         }
-        return product_data
-    end
-
-    def service_images
-        image = ImagesService.new(:service_id => @service.id, :image_content_type => params[:image_type] , :image_file_size => params[:image_size], :image_file_name => params[:image_name])
-        if image.save
-            return true
-        end
-        return false
-    end
-
-    def product_images
-        image = ImagesProduct.new(:product_id => @product.id, :image_content_type => params[:image_type] , :image_file_size => params[:image_size], :image_file_name => params[:image_name])
-        if image.save
-            return true
-        end
-        return false
+        return @@product_data
     end
 end
