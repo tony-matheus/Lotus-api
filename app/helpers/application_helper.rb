@@ -7,18 +7,29 @@ module ApplicationHelper
       }
   end
 
-  def profile_permission(user)
-      profile = Profile.find_by(user_id: user.id)
-      if profile.function == 1
+  def profile_permission(user_id)
+      @@profile = Profile.find_by(user_id: user_id)
+      if @@profile.function == 1
           return true
       end
-      false
+      return false
   end
 
-  def find_store_by_user_id
-      user_store = UsersStore.find_by(user_id: current_user.id)
-      store = Store.find(user_store.store_id)
-      store
+  def find_exist(value)
+      @@response = Store.exists?(value)
+      if @@response
+         return
+      end
+      return @@response
+  end
+
+  def images_params
+      @@images = params[:images]
+      @@image = {
+          @index => @index_id,
+          :image => @@images
+      }
+      return @@image
   end
 
 end
