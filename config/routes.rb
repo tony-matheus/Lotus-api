@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   #store
   post '/store/create' => 'stores#create'
   post '/store/update' => 'stores#update'
-  get '/store/show' => 'stores#show'
   get '/store/stores' => 'stores#show_stores'
+  get '/store/show_store' => 'stores#current_store'
   get '/store/select' => 'stores#select_stores'
   #services
   post '/service/create' => 'services#create_service'
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   delete '/product/delete' => 'services#destroy_products'
   #images
   post '/store/image' => 'stores#save_images'
+  post '/service/image' => 'service#service_images'
   # post '/service/image' => 'services#'
 
 end

@@ -53,13 +53,19 @@ module Overrides
 
                     render json: {
                         status: 'success',
-                        data:   @resource.as_json
+                        data:  resource = {
+                            data1: @resource,
+                            data2: @profile
+                        }.as_json
                     }
                 else
                     clean_up_passwords @resource
                     render json: {
                         status: 'error',
-                        data:   @resource,
+                        data:  resource = {
+                            data1: @resource,
+                            data2: @profile
+                            },
                         errors: @resource.errors
                      }, status: 403
                 end

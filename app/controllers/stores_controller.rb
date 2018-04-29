@@ -1,22 +1,24 @@
 class StoresController < ApplicationController
     before_action :authenticate_user!, except: [:show_stores,:show]
+    before_action :duplicateStore?, only:[:create]
 
     def create
         if current_user()
-            @store = Store.new(store_params())
-            if profile_permission(current_user())
-                render_json(203, "Profile has no permission")
-            end
-            if @store.save!
-                @user_store = user_store_create()
-                if @user_store.save!
-                    session[:store_id] = @store.id
-                    render_json(200, msg = { msg1: @store, msg2: @user_store })
-                else
-                    render_json(400, msg = { msg1: @user_store, msg2: "failed to save store" })
+            if profile_permission(current_user.id && !duplicateStore?())
+                Store.transaction do
+                    @store = Store.new(store_params())
+                    if @store.save!
+                        @user_store = UsersStore.new(user_store_params())
+                        if @user_store.save!
+                            session[:store_id] = @store.id
+                            render_json(200, msg = { msg1: @store, msg2: @user_store })
+                        else
+                            render_json(400, msg = { msg1: @user_store, msg2: "failed to save store" })
+                        end
+                    else
+                        render_json(203, "Profile has no permission")
+                    end
                 end
-            else
-                render_json(400, msg = { msg1: @store, msg2: "failed to save store" })
             end
         end
     end
@@ -41,16 +43,22 @@ class StoresController < ApplicationController
 
     def show_stores
         if current_user()
-            @store = Store.find(session[:store_id])
+            @stores = Store.all
+            render_json(200,@stores)
+        end
+    end
+
+    def show_user_stores
+        if current_user()
+            @@stores = Store.find_by(:user_id => current_user.id).all
             render_json(200,@store)
         end
     end
 
-
-    def show
+    def current_store
         if current_user()
-            @stores = Store.all
-            render_json(200,@stores)
+            @store = Store.find(session[:store_id])
+            render_json(200,@store)
         end
     end
 
@@ -66,11 +74,13 @@ class StoresController < ApplicationController
     end
 
     def save_images
-        @imagesSave = ImagesStore.new(store_images_params())
-        if @imagesSave.save
-            render_json(200,@imageSave.image.url(:medium))
+        @index = :store_id
+        @index_id = session[:store_id]
+        @imageStore = ImagesStore.new(images_params())
+        if @imageStore.save
+            render_json(200,@imageStore.image.url(:medium))
         else
-            render_json(500, msg = {msg1: @image, msg2: @imagesSave})
+            render_json(500, msg = {msg1: @image, msg2: @imageStore})
         end
     end
 
@@ -103,19 +113,20 @@ class StoresController < ApplicationController
         return @@store
     end
 
-    def store_images_params
-        @@images = params[:images]
-        @@image = {
-            :store_id => session[:store_id],
-            :image => @@images
+    def user_store_params
+        @@user_store = {
+            :user_id => current_user.id,
+            :store_id => @store.id
         }
-        return @@image
+        return @@user_store
     end
 
-    def user_store_create
-        @@user_store = UsersStore.new(
-            :user_id => current_user.id,
-            :store_id => @store.id)
-        return @@user_store
+    def duplicateStore?
+        @@store_name = params[:CNPJ]
+        @@store = Store.find_by(CNPJ: @@store_name)
+        if @@store == nil
+            return false
+        end
+        return true
     end
 end
