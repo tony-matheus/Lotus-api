@@ -12480,3 +12480,23 @@ Processing by ApplicationController#home as HTML
 Completed 200 OK in 647ms (Views: 574.0ms | ActiveRecord: 0.0ms)
 
 
+Started POST "/auth" for 127.0.0.1 at 2018-06-17 19:49:42 -0300
+  [1m[35m (75.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Overrides::RegistrationsController#create as */*
+  Parameters: {"email"=>"tony@usertes.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000", "registration"=>{"email"=>"tony@usertes.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"tony", "gender"=>"masc", "confirm_success_url"=>"http://localhost:3000"}}
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+Unpermitted parameters: :name, :gender, :confirm_success_url, :registration
+  [1m[36mUser Exists (54.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tony@usertes.com"], ["LIMIT", 1]]
+  [1m[35m (40.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."provider" = $1 AND "users"."email" = $2[0m  [["provider", "email"], ["email", "tony@usertes.com"]]
+  [1m[35mSQL (36.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "tony@usertes.com"], ["encrypted_password", "$2a$10$85Z23ZUKIcsn.y/pyChrGu/uyrnaXiZZ2DujxKgh/TwPgEr1N39Mi"], ["email", "tony@usertes.com"], ["tokens", "{}"], ["created_at", "2018-06-17 22:49:43.784243"], ["updated_at", "2018-06-17 22:49:43.784243"]]
+  [1m[35mSQL (22.1ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "gender" = $2, "tokens" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["name", "tony"], ["gender", "masc"], ["tokens", "{\"sRei8xEED95dII8Nkf4tSw\":{\"token\":\"$2a$10$UtHzeb8lCnj81.1dPmEsiefgMio38o1MLf85UpharplFf9/bq1/kO\",\"expiry\":1530485383}}"], ["updated_at", "2018-06-17 22:49:43.917794"], ["id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (126.7ms)[0m  [1m[32mINSERT INTO "profiles" ("user_id", "profile_type", "function", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["profile_type", "1"], ["function", 1], ["created_at", "2018-06-17 22:49:44.056979"], ["updated_at", "2018-06-17 22:49:44.056979"]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"sRei8xEED95dII8Nkf4tSw\":{\"token\":\"$2a$10$BRqO1v4GgNCI2wHul1Itv.N94MwGoY24GMJFav4ZU.D3sITKVrpiq\",\"expiry\":1530485384,\"last_token\":\"$2a$10$UtHzeb8lCnj81.1dPmEsiefgMio38o1MLf85UpharplFf9/bq1/kO\",\"updated_at\":\"2018-06-17T19:49:44.284-03:00\"}}"], ["updated_at", "2018-06-17 22:49:44.285378"], ["id", 2]]
+  [1m[35m (113.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 1099ms (Views: 1.3ms | ActiveRecord: 490.2ms)
+
+

@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   }
   root to: 'application#home'
   # namespace :api, constraints: { subdomain: 'api'}, path: "/" do
-
+  namespace :api do
+    namespace :v1 do
+      
+    end
+  end
   #user avatar
   # post '/user/avatar' => 'overrides/registrations#user_avatar'
   #informations

@@ -1,0 +1,379 @@
+
+app/channels/application_cable/channel.rb,177
+module ApplicationCableApplicationCable1,0
+  class Channel < ActionCable::Channel::BaseChannel2,0
+  class Channel < ActionCable::Channel::BaseApplicationCable::Channel2,0
+
+app/channels/application_cable/connection.rb,195
+module ApplicationCableApplicationCable1,0
+  class Connection < ActionCable::Connection::BaseConnection2,0
+  class Connection < ActionCable::Connection::BaseApplicationCable::Connection2,0
+
+app/controllers/api/v1/api_controller.rb,186
+module Api::V1V11,0
+module Api::V1Api::V11,0
+  class ApiController < ApplicationControllerApiController2,0
+  class ApiController < ApplicationControllerApi::V1::ApiController2,0
+
+app/controllers/application_controller.rb,194
+class ApplicationController < ActionController::BaseApplicationController1,0
+  def resource_paramsresource_params6,0
+  def configure_permitted_parametersconfigure_permitted_parameters10,0
+
+app/controllers/informations_controller.rb,330
+class InformationsController < ApplicationControllerInformationsController1,0
+    def createcreate4,0
+    def updateupdate18,0
+    def showshow35,0
+    def contacts_createcontacts_create46,0
+    def address_createaddress_create52,0
+    def contact_paramscontact_params57,0
+    def address_paramsaddress_params67,0
+
+app/controllers/overrides/registrations_controller.rb,282
+module OverridesOverrides1,0
+    class RegistrationsController < DeviseTokenAuth::RegistrationsControllerRegistrationsController2,0
+    class RegistrationsController < DeviseTokenAuth::RegistrationsControllerOverrides::RegistrationsController2,0
+        def createcreate4,0
+
+app/controllers/services_controller.rb,754
+class ServicesController < ApplicationControllerServicesController1,0
+    def create_servicecreate_service29,0
+    def update_serviceupdate_service44,0
+    def show_serviceshow_service56,0
+    def destroy_servicedestroy_service79,0
+    def create_productscreate_products95,0
+    def update_productsupdate_products118,0
+    def show_all_productsshow_all_products126,0
+    def show_products_by_servicesshow_products_by_services132,0
+    def destroy_productsdestroy_products144,0
+    def service_imagesservice_images153,0
+    def product_imagesproduct_images164,0
+    def create_service_product(product_id)create_service_product177,0
+    def service_paramsservice_params189,0
+    def product_params(product)product_params202,0
+
+app/controllers/stores_controller.rb,538
+class StoresController < ApplicationControllerStoresController1,0
+    def createcreate5,0
+    def updateupdate26,0
+    def show_storesshow_stores44,0
+    def show_user_storesshow_user_stores51,0
+    def current_storecurrent_store58,0
+    def select_storeselect_store65,0
+    def save_imagessave_images76,0
+    def update_imagesupdate_images87,0
+    def verify_storeverify_store96,0
+    def store_paramsstore_params105,0
+    def user_store_paramsuser_store_params116,0
+    def duplicateStore?duplicateStore?124,0
+
+app/controllers/user_controller.rb,147
+class UserController < ApplicationControllerUserController1,0
+    def user_data_updateuser_data_update4,0
+    def user_avataruser_avatar17,0
+
+app/helpers/application_helper.rb,228
+module ApplicationHelperApplicationHelper1,0
+  def render_json(code,msg)render_json3,0
+  def profile_permission(user_id)profile_permission10,0
+  def find_exist(value)find_exist18,0
+  def images_paramsimages_params26,0
+
+app/helpers/products_helper.rb,41
+module ProductsHelperProductsHelper1,0
+
+app/helpers/services_helper.rb,41
+module ServicesHelperServicesHelper1,0
+
+app/helpers/stores_helper.rb,37
+module StoresHelperStoresHelper1,0
+
+app/mailers/application_mailer.rb,67
+class ApplicationMailer < ActionMailer::BaseApplicationMailer1,0
+
+app/models/address.rb,480
+class Address < ApplicationRecordAddress1,0
+    belongs_to :useruser2,0
+    belongs_to :useruser=2,0
+    belongs_to :userbuild_user2,0
+    belongs_to :usercreate_user2,0
+    belongs_to :usercreate_user!2,0
+    belongs_to :store, optional: truestore3,0
+    belongs_to :store, optional: truestore=3,0
+    belongs_to :store, optional: truebuild_store3,0
+    belongs_to :store, optional: truecreate_store3,0
+    belongs_to :store, optional: truecreate_store!3,0
+
+app/models/application_record.rb,67
+class ApplicationRecord < ActiveRecord::BaseApplicationRecord1,0
+
+app/models/contact.rb,380
+class Contact < ApplicationRecordContact1,0
+  belongs_to :useruser2,0
+  belongs_to :useruser=2,0
+  belongs_to :userbuild_user2,0
+  belongs_to :usercreate_user2,0
+  belongs_to :usercreate_user!2,0
+  belongs_to :storestore3,0
+  belongs_to :storestore=3,0
+  belongs_to :storebuild_store3,0
+  belongs_to :storecreate_store3,0
+  belongs_to :storecreate_store!3,0
+
+app/models/images_product.rb,250
+class ImagesProduct < ApplicationRecordImagesProduct1,0
+  belongs_to :productproduct2,0
+  belongs_to :productproduct=2,0
+  belongs_to :productbuild_product2,0
+  belongs_to :productcreate_product2,0
+  belongs_to :productcreate_product!2,0
+
+app/models/images_service.rb,250
+class ImagesService < ApplicationRecordImagesService1,0
+  belongs_to :serviceservice2,0
+  belongs_to :serviceservice=2,0
+  belongs_to :servicebuild_service2,0
+  belongs_to :servicecreate_service2,0
+  belongs_to :servicecreate_service!2,0
+
+app/models/images_store.rb,226
+class ImagesStore < ApplicationRecordImagesStore1,0
+  belongs_to :storestore2,0
+  belongs_to :storestore=2,0
+  belongs_to :storebuild_store2,0
+  belongs_to :storecreate_store2,0
+  belongs_to :storecreate_store!2,0
+
+app/models/product.rb,515
+class Product < ApplicationRecordProduct1,0
+    belongs_to :storestore2,0
+    belongs_to :storestore=2,0
+    belongs_to :storebuild_store2,0
+    belongs_to :storecreate_store2,0
+    belongs_to :storecreate_store!2,0
+    has_one :services_productsservices_products3,0
+    has_one :services_productsservices_products=3,0
+    has_one :services_productsbuild_services_products3,0
+    has_one :services_productscreate_services_products3,0
+    has_one :services_productscreate_services_products!3,0
+
+app/models/profile.rb,208
+class Profile < ApplicationRecordProfile1,0
+  belongs_to :useruser2,0
+  belongs_to :useruser=2,0
+  belongs_to :userbuild_user2,0
+  belongs_to :usercreate_user2,0
+  belongs_to :usercreate_user!2,0
+
+app/models/service.rb,752
+class Service < ApplicationRecordService1,0
+    belongs_to :storestore2,0
+    belongs_to :storestore=2,0
+    belongs_to :storebuild_store2,0
+    belongs_to :storecreate_store2,0
+    belongs_to :storecreate_store!2,0
+    has_one :services_productservices_product4,0
+    has_one :services_productservices_product=4,0
+    has_one :services_productbuild_services_product4,0
+    has_one :services_productcreate_services_product4,0
+    has_one :services_productcreate_services_product!4,0
+    has_one :services_typeservices_type5,0
+    has_one :services_typeservices_type=5,0
+    has_one :services_typebuild_services_type5,0
+    has_one :services_typecreate_services_type5,0
+    has_one :services_typecreate_services_type!5,0
+
+app/models/services_product.rb,466
+class ServicesProduct < ApplicationRecordServicesProduct1,0
+    belongs_to :serviceservice2,0
+    belongs_to :serviceservice=2,0
+    belongs_to :servicebuild_service2,0
+    belongs_to :servicecreate_service2,0
+    belongs_to :servicecreate_service!2,0
+    belongs_to :productproduct3,0
+    belongs_to :productproduct=3,0
+    belongs_to :productbuild_product3,0
+    belongs_to :productcreate_product3,0
+    belongs_to :productcreate_product!3,0
+
+app/models/services_type.rb,268
+class ServicesType < ApplicationRecordServicesType1,0
+    belongs_to :servicesservices2,0
+    belongs_to :servicesservices=2,0
+    belongs_to :servicesbuild_services2,0
+    belongs_to :servicescreate_services2,0
+    belongs_to :servicescreate_services!2,0
+
+app/models/store.rb,658
+class Store < ApplicationRecordStore1,0
+    has_many :servicesservices2,0
+    has_many :servicesservices=2,0
+    has_many :servicesservice_ids2,0
+    has_many :servicesservice_ids=2,0
+    has_many :addressesaddresses3,0
+    has_many :addressesaddresses=3,0
+    has_many :addressesaddresse_ids3,0
+    has_many :addressesaddresse_ids=3,0
+    has_many :contactscontacts4,0
+    has_many :contactscontacts=4,0
+    has_many :contactscontact_ids4,0
+    has_many :contactscontact_ids=4,0
+    has_many :productsproducts5,0
+    has_many :productsproducts=5,0
+    has_many :productsproduct_ids5,0
+    has_many :productsproduct_ids=5,0
+
+app/models/user.rb,527
+class User < ActiveRecord::BaseUser1,0
+  has_one :profileprofile10,0
+  has_one :profileprofile=10,0
+  has_one :profilebuild_profile10,0
+  has_one :profilecreate_profile10,0
+  has_one :profilecreate_profile!10,0
+  has_many :contactscontacts12,0
+  has_many :contactscontacts=12,0
+  has_many :contactscontact_ids12,0
+  has_many :contactscontact_ids=12,0
+  has_many :addressesaddresses13,0
+  has_many :addressesaddresses=13,0
+  has_many :addressesaddresse_ids13,0
+  has_many :addressesaddresse_ids=13,0
+
+app/models/users_store.rb,406
+class UsersStore < ApplicationRecordUsersStore1,0
+    belongs_to :useruser2,0
+    belongs_to :useruser=2,0
+    belongs_to :userbuild_user2,0
+    belongs_to :usercreate_user2,0
+    belongs_to :usercreate_user!2,0
+    belongs_to :storestore3,0
+    belongs_to :storestore=3,0
+    belongs_to :storebuild_store3,0
+    belongs_to :storecreate_store3,0
+    belongs_to :storecreate_store!3,0
+
+config/application.rb,146
+module LotusLotus9,0
+  class Application < Rails::ApplicationApplication10,0
+  class Application < Rails::ApplicationLotus::Application10,0
+
+db/migrate/20180301204044_devise_token_auth_create_users.rb,119
+class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[5.1]DeviseTokenAuthCreateUsers1,0
+  def changechange2,0
+
+db/migrate/20180301204917_create_profiles.rb,95
+class CreateProfiles < ActiveRecord::Migration[5.1]CreateProfiles1,0
+  def changechange2,0
+
+db/migrate/20180320204112_create_stores.rb,91
+class CreateStores < ActiveRecord::Migration[5.1]CreateStores1,0
+  def changechange2,0
+
+db/migrate/20180320204554_create_services.rb,95
+class CreateServices < ActiveRecord::Migration[5.1]CreateServices1,0
+  def changechange2,0
+
+db/migrate/20180320205200_create_products.rb,95
+class CreateProducts < ActiveRecord::Migration[5.1]CreateProducts1,0
+  def changechange2,0
+
+db/migrate/20180320210708_create_services_products.rb,111
+class CreateServicesProducts < ActiveRecord::Migration[5.1]CreateServicesProducts1,0
+  def changechange2,0
+
+db/migrate/20180320213432_create_services_types.rb,105
+class CreateServicesTypes < ActiveRecord::Migration[5.1]CreateServicesTypes1,0
+  def changechange2,0
+
+db/migrate/20180320215504_create_images_services.rb,107
+class CreateImagesServices < ActiveRecord::Migration[5.1]CreateImagesServices1,0
+  def changechange2,0
+
+db/migrate/20180320215519_create_images_products.rb,107
+class CreateImagesProducts < ActiveRecord::Migration[5.1]CreateImagesProducts1,0
+  def changechange2,0
+
+db/migrate/20180320215534_create_images_stores.rb,103
+class CreateImagesStores < ActiveRecord::Migration[5.1]CreateImagesStores1,0
+  def changechange2,0
+
+db/migrate/20180322165032_create_contacts.rb,95
+class CreateContacts < ActiveRecord::Migration[5.1]CreateContacts1,0
+  def changechange2,0
+
+db/migrate/20180322165250_create_addresses.rb,97
+class CreateAddresses < ActiveRecord::Migration[5.1]CreateAddresses1,0
+  def changechange2,0
+
+db/migrate/20180322173024_create_users_stores.rb,101
+class CreateUsersStores < ActiveRecord::Migration[5.1]CreateUsersStores1,0
+  def changechange2,0
+
+db/migrate/20180404160348_fk_to_be_null.rb,87
+class FkToBeNull < ActiveRecord::Migration[5.1]FkToBeNull1,0
+  def changechange2,0
+
+jobs/application_job.rb,58
+class ApplicationJob < ActiveJob::BaseApplicationJob1,0
+
+test/application_system_test_case.rb,95
+class ApplicationSystemTestCase < ActionDispatch::SystemTestCaseApplicationSystemTestCase3,0
+
+test/controllers/informations_controller_test.rb,98
+class InformationsControllerTest < ActionDispatch::IntegrationTestInformationsControllerTest3,0
+
+test/controllers/products_controller_test.rb,90
+class ProductsControllerTest < ActionDispatch::IntegrationTestProductsControllerTest3,0
+
+test/controllers/profile_controller_test.rb,88
+class ProfileControllerTest < ActionDispatch::IntegrationTestProfileControllerTest3,0
+
+test/controllers/services_controller_test.rb,90
+class ServicesControllerTest < ActionDispatch::IntegrationTestServicesControllerTest3,0
+
+test/controllers/stores_controller_test.rb,86
+class StoresControllerTest < ActionDispatch::IntegrationTestStoresControllerTest3,0
+
+test/controllers/user_controller_test.rb,82
+class UserControllerTest < ActionDispatch::IntegrationTestUserControllerTest3,0
+
+test/models/address_test.rb,60
+class AddressTest < ActiveSupport::TestCaseAddressTest3,0
+
+test/models/contact_test.rb,60
+class ContactTest < ActiveSupport::TestCaseContactTest3,0
+
+test/models/images_product_test.rb,72
+class ImagesProductTest < ActiveSupport::TestCaseImagesProductTest3,0
+
+test/models/images_service_test.rb,72
+class ImagesServiceTest < ActiveSupport::TestCaseImagesServiceTest3,0
+
+test/models/images_store_test.rb,68
+class ImagesStoreTest < ActiveSupport::TestCaseImagesStoreTest3,0
+
+test/models/product_test.rb,60
+class ProductTest < ActiveSupport::TestCaseProductTest3,0
+
+test/models/profile_test.rb,60
+class ProfileTest < ActiveSupport::TestCaseProfileTest3,0
+
+test/models/service_test.rb,60
+class ServiceTest < ActiveSupport::TestCaseServiceTest3,0
+
+test/models/services_product_test.rb,76
+class ServicesProductTest < ActiveSupport::TestCaseServicesProductTest3,0
+
+test/models/services_type_test.rb,70
+class ServicesTypeTest < ActiveSupport::TestCaseServicesTypeTest3,0
+
+test/models/store_test.rb,56
+class StoreTest < ActiveSupport::TestCaseStoreTest3,0
+
+test/models/users_store_test.rb,66
+class UsersStoreTest < ActiveSupport::TestCaseUsersStoreTest3,0
+
+test/test_helper.rb,101
+class ActiveSupport::TestCaseTestCase5,0
+class ActiveSupport::TestCaseActiveSupport::TestCase5,0

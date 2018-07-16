@@ -32,15 +32,11 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[5.1]
       # t.integer  :failed_attempts, :default => 0, :null => false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-
       ## User Info
+      t.references :profile, foreign_key: true
       t.string :email
-      t.string :name
-      t.string :cpf
-      t.date :birthday
-      t.string :gender
       t.attachment :avatar
-      # t.string :type
+      t.integer :type_user
 
       ## Tokens
       t.text :tokens

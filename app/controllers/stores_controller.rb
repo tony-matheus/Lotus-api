@@ -50,7 +50,7 @@ class StoresController < ApplicationController
 
     def show_user_stores
         if current_user()
-            @@stores = Store.find_by(:user_id => current_user.id).all
+            @@stores = Store.where(:user_id => current_user.id)
             render_json(200,@store)
         end
     end

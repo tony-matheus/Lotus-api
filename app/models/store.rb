@@ -1,7 +1,7 @@
 class Store < ApplicationRecord
-    has_many :services
-    has_many :addresses
-    has_many :contacts
-    has_many :products
+    has_many :services, dependent: :destroy
+    has_many :addresses, dependent: :destroy
+    has_many :contacts, dependent: :destroy
+    has_many :products, dependent: :destroy
     
 end

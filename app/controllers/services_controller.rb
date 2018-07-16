@@ -1,5 +1,30 @@
 class ServicesController < ApplicationController
-    before_action :authenticate_user! 
+    before_action :authenticate_user!
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     def create_service
         if current_user()
@@ -48,6 +73,8 @@ class ServicesController < ApplicationController
             end
         end
     end
+
+    # ERRRROOOORRRR #
 
     def destroy_service
         if current_user()
@@ -126,7 +153,7 @@ class ServicesController < ApplicationController
     def service_images
         @index = :service_id
         @index_id = params[:service_id]
-        @imageService = ImagesService.new(service_images_params(@@service_id))
+        @imageService = ImagesService.new(images_params(@@service_id))
         if @imageService.save
             render_json(200,@imageService.image.url(:medium))
         else
