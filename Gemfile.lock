@@ -140,7 +140,7 @@ GEM
       terrapin (~> 0.6.0)
     pg (0.21.0)
     public_suffix (3.0.2)
-    puma (3.11.2)
+    puma (3.12.4)
     rack (2.0.4)
     rack-cors (1.0.2)
     rack-test (0.8.3)
@@ -248,7 +248,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   paperclip (~> 6.0.0)
   pg (~> 0.18)
-  puma (~> 3.7)
+  puma (~> 3.12)
   rack-cors
   rails (~> 5.1.4)
   sass-rails (~> 5.0)
